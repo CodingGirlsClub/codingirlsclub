@@ -20,6 +20,16 @@
 /node_modules
 /yarn-error.log
 
+/db/schema.rb
+
 .byebug_history
+config/database.yml
+tmp/*
+log/*
+.vscode/*
 /public/packs
 /node_modules
+npm-debug.log
+.DS_Store
+/public/uploads/*
+config/deploy.yml
