@@ -7,29 +7,24 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
-/yarn-error.log
+# Ignore config
+/config/database.yml
+/config/deploy.yml
 
 /db/schema.rb
-
-.byebug_history
-config/database.yml
-tmp/*
-log/*
+/.ruby-version
+/.byebug_history
 .vscode/*
+
+# Ignore uploads
 /public/packs
-/node_modules
-npm-debug.log
-.DS_Store
 /public/uploads/*
-config/deploy.yml
+
+# Ignore OS generated files
+.DS_Store
