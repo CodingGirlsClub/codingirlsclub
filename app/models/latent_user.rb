@@ -1,0 +1,2 @@
+class LatentUser < ApplicationRecord
+end
