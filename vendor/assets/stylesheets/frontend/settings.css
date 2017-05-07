@@ -1311,7 +1311,7 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 		color-stop(0.13, rgb(0,0,0)),
 		color-stop(1, rgb(50,50,50))
 	);
-	
+
 	display:table;max-width:100%; overflow:hidden;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;
 }
 
@@ -1558,7 +1558,7 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 /************************************
 		-	TP BANNER TIMER		-
 *************************************/
-.tp-bannertimer								{	width:100%; height:10px; background:url(../assets/timer.png);position:absolute; z-index:200;top:0px}
+.tp-bannertimer								{	width:100%; height:10px; background:url("assan/timer.png");position:absolute; z-index:200;top:0px}
 .tp-bannertimer.tp-bottom					{	bottom:0px;height:5px; top:auto}
 
 
@@ -2341,11 +2341,11 @@ zoom: 1;
 
 @font-face {
   font-family: 'revicons';
-  src: url('../font/revicons.eot?5510888');
-  src: url('../font/revicons.eot?5510888#iefix') format('embedded-opentype'),
-       url('../font/revicons.woff?5510888') format('woff'),
-       url('../font/revicons.ttf?5510888') format('truetype'),
-       url('../font/revicons.svg?5510888#revicons') format('svg');
+  src: font-url('revicons.eot?5510888');
+  src: font-url('revicons.eot?5510888#iefix') format('embedded-opentype'),
+       font-url('revicons.woff?5510888') format('woff'),
+       font-url('revicons.ttf?5510888') format('truetype'),
+       font-url('revicons.svg?5510888#revicons') format('svg');
   font-weight: normal;
   font-style: normal;
 }

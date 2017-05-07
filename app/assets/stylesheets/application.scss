@@ -10,12 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require bootstrap.min
- *= require frontend/animate
- *= require frontend/flexslider
- *= require frontend/font-awesome.min
- *= require frontend/owl.carousel.min
- *= require frontend/owl.theme.default.min
- *= require frontend/settings
- *= require frontend/style
  */
+
+ @import "bootstrap.min";
+ @import "font-awesome.min";
+ @import "style";
+
+ @import "frontend/animate";
+ @import "frontend/flexslider";
+ @import "frontend/owl.carousel.min";
+ @import "frontend/owl.theme.default.min";
+ @import "frontend/settings";

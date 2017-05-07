@@ -2,7 +2,7 @@
 /*
 Template variables
 */
-/* 
+/*
     Basics
 */
 body {
@@ -461,11 +461,11 @@ Top bar style
   color: #eee;
 }
 
-/* 
+/*
     Navbar css
 */
 .navbar-inverse {
-  background: url("../images/pattern.png") repeat left top scroll;
+  background: image-url("assan/pattern.png") repeat left top scroll;
   border: 0px;
   margin: 0px;
   padding: 0px 0;
@@ -516,7 +516,7 @@ Top bar style
 
 /***light navigation**/
 .navbar-default {
-  background: url("../images/pattern-2.png") repeat left top scroll;
+  background: image-url("assan/pattern-2.png") repeat left top scroll;
   border: 0px;
   margin: 0px;
   padding: 0px 0;
@@ -807,7 +807,7 @@ Carousel slider
   color: #d3b663;
 }
 
-/* 
+/*
    Sidebar widget
 */
 .sidebar-widget {
@@ -893,7 +893,7 @@ Carousel slider
   background: #209b60;
 }
 
-/* 
+/*
     tabs
 */
 .course-tabs {
@@ -1156,7 +1156,7 @@ accordions
 }
 
 .pattern-bg {
-  background: url("../images/pattern.png") repeat;
+  background: image-url("assan/pattern.png") repeat;
   padding: 60px 0;
 }
 .pattern-bg .center-heading h2, .pattern-bg .center-heading p {
@@ -1170,7 +1170,7 @@ accordions
 }
 
 .other-info {
-  background: url("../images/pattern-2.png") repeat left top scroll #FFF;
+  background: image-url("assan/pattern-2.png") repeat left top scroll #FFF;
 }
 .other-info h4 {
   text-transform: uppercase;
@@ -1235,7 +1235,7 @@ accordions
 }
 
 .newsletter-section {
-  background: url("../images/pattern-2.png") repeat left top scroll #FFF;
+  background: image-url("assan/pattern-2.png") repeat left top scroll #FFF;
   padding: 80px 0;
 }
 .newsletter-section form {
@@ -1250,7 +1250,7 @@ accordions
 }
 
 .intro-video-section {
-  background: url("../images/pattern-2.png") repeat left top scroll #FFF;
+  background: image-url("assan/pattern-2.png") repeat left top scroll #FFF;
   padding: 80px 0;
 }
 .intro-video-section h1 {
