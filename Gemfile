@@ -24,6 +24,11 @@ gem 'capistrano-rails', '~> 1.2'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1'
 
+# Simple Rails app configuration
+gem 'figaro', '~> 1.1'
+# New wave Internationalization support for Ruby.
+gem 'i18n', '~> 0.8.1'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13.0'

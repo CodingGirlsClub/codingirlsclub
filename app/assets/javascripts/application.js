@@ -12,4 +12,16 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
+//= require jquery.min
+//= require bootstrap.min
+
+// assan template javascript files
+//= require frontend/bootstrap-hover-dropdown.min
+//= require frontend/custom
+//= require frontend/jquery.flexslider-min
+//= require frontend/jquery.stellar.min
+//= require frontend/jquery.themepunch.revolution.min
+//= require frontend/jquery.themepunch.tools.min
+//= require frontend/owl.carousel.min
+//= require frontend/revolution-custom
+//= require frontend/wow.min
