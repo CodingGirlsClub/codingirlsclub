@@ -1,0 +1,124 @@
+<div class="top-bar dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 hidden-xs">
+        <span>
+          <div id="my-modal" class="modal fade" aria-labelledby="my-modalLabel" aria-hidden="true" tabindex="-1" role="dialog" style="position:relative;left: 250px;z-index:999;">
+            <div class="modal-dialog" data-dismiss="modal">
+              <div class="modal-content" style="text-align: center;" >
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <%= image_tag "QR-wechat.jpg", class: "img-responsive", style: "position: relative;left: 150px;top: 0px;" %>
+                  <strong>扫描二维码以关注公众号</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="show-img" type="button" class="btn btn-default" data-toggle="modal" data-target="#my-modal"><i class="fa fa-wechat"></i> <%= t("Follow Wechat") %></button>
+        </span>
+        <span>
+          <%= mail_to ENV['MAILER_TO'] do %>
+            <i class="fa fa-envelope"></i>
+            info@codingirls.club
+          <% end %>
+        </span>
+      </div>
+      <div class="col-sm-6 text-right">
+        <span>
+          <%= link_to '#' do %>
+            <i class="fa fa-pencil"></i>
+            <%= t("Apply Campus Ambassador") %>
+          <% end %>
+        </span>
+        <span>
+          <%= link_to '#' do %>
+            <i class="fa fa-pencil"></i>
+            <%= t("Become a Mentor") %>
+          <% end %>
+        </span>
+        <span>
+          <%= link_to login_path do %>
+            <i class="fa fa-user"></i>
+            <%= t("Sign In") %>
+          <% end %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-static-top yamm">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to image_tag("CGC02.png", size: "210x42"), root_path,  class: 'navbar-brand', style: "max-height: 100%;display:inline-block;padding-top: 8px;" %>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t("Clubs") %>
+          <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to(t("How Club Works"), '#') %></li>
+            <li><%= link_to(t("Campus Ambassador"), '#') %></li>
+            <li><%= link_to(t("All Clubs"), '#') %></li>
+            <li><%= link_to(t("All Events"), '#') %></li>
+            <li><%= link_to("F.A.Q", '#') %></li>
+          </ul>
+        </li>
+
+        <li><%= link_to(t("Courses"), '#') %></li>
+        <li><%= link_to(t("Mentors"), '#') %></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t("Corporate Activities") %>
+          <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'How we work with companies', '#' %></li>
+            <li><%= link_to 'Corporate Education', '#' %></li>
+            <li><%= link_to 'Partnerships and Sponsorsihp', '#' %></li>
+            <li><%= link_to 'Talent Strategy', '#' %></li>
+          </ul>
+        </li>
+
+        <li><%= link_to(t("News"), '#') %></li>
+        <li><%= link_to(t("Jobs"), '#') %></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t("About Us") %>
+          <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to t('The Team'), '#' %></li>
+            <li><%= link_to t('Advisory Board'), '#' %></li>
+            <li><%= link_to t('Community Partners'), '#' %></li>
+            <li><%= link_to t('Why We do What We do'), '#' %></li>
+            <li><%= link_to t('Friends and Resources'), '#' %></li>
+            <li><%= link_to t('Contact Us'), '#' %></li>
+          </ul>
+        </li>
+
+        <li class="search-toggle">
+          <a href="javascript:void(0)">
+            <i class="fa fa-search"></i>
+          </a>
+          <form class="search-form">
+            <input type="text" class="form-control" placeholder="Search here...">
+          </form>
+        </li>
+
+      </ul>
+
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+  <!--/.container -->
+</nav>
+<!--/nav end -->
