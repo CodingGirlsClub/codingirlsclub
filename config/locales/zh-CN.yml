@@ -1,4 +1,25 @@
 zh-CN:
+  activerecord:
+    attributes:
+      user:
+        name: 用户名
+        email: 邮箱
+        password: 密码
+        promo_code: 邀请码
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: 不能为空
+            email:
+              blank: 不能为空
+              invalid: 无效
+            password:
+              blank: 不能为空
+              too_short: 太短
+            promo_code:
+              blank: 不能为空
   Follow Wechat: 关注公众号
   Apply Campus Ambassador: 申请校园大使
   Become a Mentor: 申请助教
