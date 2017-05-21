@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
   end
 
+  def logout
+    session.delete(:user_id)
+    @current_user = nil
+  end
+
   private
 
   def current_user
