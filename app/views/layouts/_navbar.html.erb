@@ -24,24 +24,39 @@
         </span>
       </div>
       <div class="col-sm-6 text-right">
-        <span>
-          <%= link_to '#' do %>
-            <i class="fa fa-pencil"></i>
-            <%= t("Apply Campus Ambassador") %>
-          <% end %>
-        </span>
-        <span>
-          <%= link_to '#' do %>
-            <i class="fa fa-pencil"></i>
-            <%= t("Become a Mentor") %>
-          <% end %>
-        </span>
-        <span>
-          <%= link_to login_path do %>
-            <i class="fa fa-user"></i>
-            <%= t("Sign In") %>
-          <% end %>
-        </span>
+        <% if logged_in? %>
+          <span class="username">
+            <%= link_to edit_user_path(current_user) do %>
+              <i class='fa fa-user'></i>
+              <%= "#{current_user.name}" %>
+            <% end %>
+          </span>
+          <span>
+            <%= link_to logout_path, method: :delete, class: 'apply' do %>
+              <i class='fa fa-pencil'></i>
+              <%= '退出' %>
+            <% end %>
+          </span>
+        <% else %>
+          <span>
+            <%= link_to '#' do %>
+              <i class="fa fa-pencil"></i>
+              <%= t("Apply Campus Ambassador") %>
+            <% end %>
+          </span>
+          <span>
+            <%= link_to '#' do %>
+              <i class="fa fa-pencil"></i>
+              <%= t("Become a Mentor") %>
+            <% end %>
+          </span>
+          <span>
+            <%= link_to login_path do %>
+              <i class="fa fa-user"></i>
+              <%= t("Sign In") %>
+            <% end %>
+          </span>
+        <% end %>
       </div>
     </div>
   </div>

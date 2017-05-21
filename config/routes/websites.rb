@@ -1,17 +1,11 @@
 get  '/signup', to: 'users#new'
 post '/signup', to: 'users#create'
 
-get  '/login', to: 'sessions#new'
-post '/login', to: 'sessions#create'
-
-get  '/token_login', to: 'sessions#token_login'
-post '/token_login', to: 'sessions#token_login'
-
+get    '/login',  to: 'sessions#new'
+post   '/login',  to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
 
-resources :sessions
-
-resources :users do
+resources :users, only: [:edit, :update] do
   member do
     get :identity_selector
     patch :identity_selector

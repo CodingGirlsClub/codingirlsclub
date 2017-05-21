@@ -6,11 +6,18 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      login(@user)
       flash[:success] = '申请成功，我们将会在三个工作日内邮件通知你审核结果， 请注意查收邮件。'
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private

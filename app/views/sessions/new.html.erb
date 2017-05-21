@@ -1,0 +1,46 @@
+<div class="page-breadcrumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>登录</h2>
+      </div>
+      <div class="col-sm-6 text-right">
+        <ol class="breadcrumb">
+          <li><%= link_to '返回首页', root_path %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="space70"></div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="login-register-form">
+        <%= form_for(:session, url: login_path) do |f| %>
+
+          <div class="form-group">
+            <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+            <span class="input-icon"><i class=" fa fa-envelope"></i></span>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+            <span class="input-icon"><i class=" fa fa-lock"></i></span>
+          </div>
+
+          <div class="form-group text-right">
+            <%= link_to "忘记密码?", forget_password_users_path %>
+          </div>
+          <%= f.submit "登录", class: "btn btn-lg btn-block btn-skin" %>
+        <% end %>
+
+
+        <%= link_to '注册', signup_path, class: 'btn btn-lg btn-link btn-block' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="space70"></div>
