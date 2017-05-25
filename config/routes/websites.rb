@@ -14,7 +14,7 @@ resources :users, only: [:edit, :update] do
     get :access_invite_code, :access_campus_ambassador, :reset_password, :forget_password
     post :access_invite_code, :access_campus_ambassador, :reset_password, :forget_password
   end
-
 end
+resources :account_activations, only: [:edit]
 
 resources :mentors

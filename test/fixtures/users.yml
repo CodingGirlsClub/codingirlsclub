@@ -1,4 +1,6 @@
 michael:
   name: Michael Example
   email: michael@example.com
-  password_digest: <%= CGC::Tools::Regular.digest('password') %>
+  password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
