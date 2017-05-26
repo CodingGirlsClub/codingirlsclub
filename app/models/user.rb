@@ -4,6 +4,7 @@ class User < ApplicationRecord
   attr_accessor :promo_code       # 虚拟属性，用户注册时判断邀请码使用
   attr_accessor :activation_token # 虚拟属性，用户注册时激活帐号使用
   attr_accessor :remember_token   # 虚拟属性，用户登录时记录我使用
+  attr_accessor :reset_token      # 虚拟属性，用户找回密码时使用
 
   validates :name,       presence: true, length: { maximum: 50 }
   validates :email,      presence: true, length: { maximum: 180 },
@@ -25,6 +26,7 @@ class User < ApplicationRecord
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
+    byebug
     BCrypt::Password.new(digest).is_password?(token)
   end
 
@@ -34,13 +36,29 @@ class User < ApplicationRecord
 
   # 激活帐号
   def activate
-    update_attribute(:activated,    true)
-    update_attribute(:activated_at, Time.zone.now)
+    update_attributes(activated: true, activated_at: Time.zone.now)
   end
 
   # 发送激活邮件
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
+  end
+
+  # 重置密码
+  def create_reset_digest
+    self.reset_token = CGC::Tools::Regular.user_new_token
+    update_attribute(:reset_digest,  CGC::Tools::Regular.user_digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  # 发送重置密码邮件
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  # 检查重置密码 token 是否已过期
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 
   private

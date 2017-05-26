@@ -4,8 +4,8 @@ class UserMailer < ApplicationMailer
     mail(to: user.email, subject: '帐号激活')
   end
 
-  def password_reset
-    @greeting = 'Hi'
-    mail to: 'to@example.org'
+  def password_reset(user)
+    @user = user
+    mail(to: user.email, subject: '找回密码')
   end
 end
