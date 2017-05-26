@@ -26,7 +26,6 @@ class User < ApplicationRecord
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
-    byebug
     BCrypt::Password.new(digest).is_password?(token)
   end
 
@@ -36,7 +35,7 @@ class User < ApplicationRecord
 
   # 激活帐号
   def activate
-    update_attributes(activated: true, activated_at: Time.zone.now)
+    update_attributes(activated: true, activated_at: Time.current)
   end
 
   # 发送激活邮件
@@ -48,7 +47,7 @@ class User < ApplicationRecord
   def create_reset_digest
     self.reset_token = CGC::Tools::Regular.user_new_token
     update_attribute(:reset_digest,  CGC::Tools::Regular.user_digest(reset_token))
-    update_attribute(:reset_sent_at, Time.zone.now)
+    update_attribute(:reset_sent_at, Time.current)
   end
 
   # 发送重置密码邮件
