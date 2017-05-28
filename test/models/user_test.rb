@@ -79,4 +79,23 @@ class UserTest < ActiveSupport::TestCase
   test 'authenticated? should return false for a user with nil digest' do
     assert_not @user.authenticated?(:remember, '')
   end
+
+  test 'promo_code should existed' do
+    @user.promo_code = 'didfifdof'
+    @user.save
+    assert_not @user.valid?
+  end
+
+  test 'promo_code should not expired if promo_code is a system code' do
+    promo_code = referrals(:system_expired_referral)
+    @user.promo_code = promo_code
+    @user.save
+    assert_not @user.valid?
+  end
+
+  test 'create a user with not expired system promo_code' do
+    promo_code = referrals(:system_active_referral)
+    @user.save
+    assert @user.valid?
+  end
 end

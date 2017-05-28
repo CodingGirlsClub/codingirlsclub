@@ -15,11 +15,14 @@ zh-CN:
             email:
               blank: 不能为空
               invalid: 无效
+              taken: 已被注册
             password:
               blank: 不能为空
               too_short: 太短
             promo_code:
               blank: 不能为空
+              not_exist: 不存在
+              invalid: 已失效
   Follow Wechat: 关注公众号
   Apply Campus Ambassador: 申请校园大使
   Become a Mentor: 申请助教

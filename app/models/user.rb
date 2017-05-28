@@ -11,10 +11,13 @@ class User < ApplicationRecord
                          format: { with: CGC::Tools::Regular::VALID_EMAIL_REGEX },
                          uniqueness: { case_sensitive: false }
   validates :password,   presence: true, length: { minimum: 6, maximum: 20 }
-  validates :promo_code, presence: true, length: { maximum: 15 }
+  validates :promo_code, presence: true, length: { maximum: 15 }, on: :create
+
+  validate :validate_promo_code, on: :create
 
   before_save :downcase_email
   before_create :create_activation_digest
+  after_create :send_activation_email
 
   # 记录用户持久化
   def remember
@@ -35,7 +38,8 @@ class User < ApplicationRecord
 
   # 激活帐号
   def activate
-    update_attributes(activated: true, activated_at: Time.current)
+    update_attribute(:activated, true)
+    update_attribute(:activated_at, Time.current)
   end
 
   # 发送激活邮件
@@ -60,7 +64,19 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # 根据邀请码生成邀请记录
+  def generate_referral_with(promo_code)
+    referral = Referral.find_by(code: promo_code)
+    UserReferral.create!(code: promo_code, user_id: id, inviter_id: referral.user_id)
+  end
+
   private
+
+  def validate_promo_code
+    referral = Referral.find_by(code: promo_code)
+    errors.add(:promo_code, :not_exist) and return if referral.nil?
+    errors.add(:promo_code, :invalid) if referral.category_system? && referral.expired_at < Time.current
+  end
 
   def downcase_email
     email.downcase!

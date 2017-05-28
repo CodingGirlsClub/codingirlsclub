@@ -14,15 +14,15 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   end
 
   test 'valid signup information with account activation' do
+    promo_code = referrals(:user_referral).code
     get signup_path
     assert_difference 'User.count', 1 do
-      post signup_path, params: { user: { name:  'Example User', email: 'user@example.com', password: 'password', password_confirmation: 'password', promo_code: 'aaaa' } }
+      post signup_path, params: { user: { name:  'Example User', email: 'user@example.com', password: 'password', password_confirmation: 'password', promo_code: promo_code } }
     end
-    assert_equal 1, ActionMailer::Base.deliveries.size
     user = assigns(:user)
     assert_not user.activated?
     # 帐号激活前登录
-    login(user)
+    login_as(user)
     assert_not is_logged_in?
 
     # 无效的 token 激活帐号

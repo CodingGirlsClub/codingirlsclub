@@ -5,8 +5,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      @user.send_activation_email
+    if @user.valid?
+      ActiveRecord::Base.transaction do
+        @user.save!
+        @user.generate_referral_with(params[:user][:promo_code])
+      end
       flash[:success] = '请通过邮件激活帐号'
       redirect_to root_path
     else

@@ -1,0 +1,16 @@
+user_referral:
+  code: 'aaa'
+  user_id: <%= ActiveRecord::FixtureSet.identify(:michael) %>
+  category: 1
+
+system_active_referral:
+  code: 'bbb'
+  user_id: <%= ActiveRecord::FixtureSet.identify(:system_user) %>
+  category: 0
+  expired_at: <%= Time.current + 1.day %>
+
+system_expired_referral:
+  code: 'ccc'
+  user_id: <%= ActiveRecord::FixtureSet.identify(:system_user) %>
+  category: 0
+  expired_at: <%= Time.current - 1.day %>
