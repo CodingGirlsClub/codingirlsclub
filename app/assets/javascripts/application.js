@@ -14,6 +14,7 @@
 //= require turbolinks
 //= require jquery.min
 //= require bootstrap.min
+//= require jquery.min
 
 // assan template javascript files
 //= require frontend/bootstrap-hover-dropdown.min

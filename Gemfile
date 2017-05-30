@@ -30,6 +30,7 @@ gem 'figaro', '~> 1.1'
 gem 'i18n', '~> 0.8.1'
 
 group :development, :test do
+  gem 'pry'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13.0'
   gem 'selenium-webdriver'

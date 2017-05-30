@@ -19,8 +19,8 @@ class City < ApplicationRecord
   has_many :universities
   has_many :admins
   # has_many :clubs
-  has_many :cities, class_name: "City", foreign_key: "parent_id"
-  belongs_to :province, class_name: "City", optional: true
+  has_many :children, class_name: "City", foreign_key: "parent_id"
+  belongs_to :parent, class_name: "City", optional: true
 
   scope :provinces, ->{where(level: 1)}
 
