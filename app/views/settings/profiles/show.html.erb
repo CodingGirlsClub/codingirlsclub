@@ -1,0 +1,243 @@
+<section id="main-content">
+  <div class="space-30"></div>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="profile-info">
+              <%= image_tag (current_user.avatar_url(:thumb).to_s), alt: "", width: '120', class: 'img-circle' %>
+
+              <h4><%= current_user.name %></h4>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="user_referral_code">邀请码</label>
+                <span><%= current_user.referral.code %></span>
+              </div>
+            </div><!--profile info-->
+          </div><!--panel body-->
+        </div><!--panel-->
+      </div>
+
+      <div class="col-md-9">
+        <div class="row">
+          <div class="panel">
+            <div class="panel-body user-profile-info">
+              <%= form_for @user, url: settings_profile_path(@user), method: :patch, html: { class: 'form-horizontal' } do |f| %>
+                <h4>基本信息</h4>
+                <div class="form-group">
+                  <%= f.label :name, '姓名', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7" >
+                    <%= f.text_field :name, class: 'form-control' %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :name, 'Email', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7 ">
+                    <%= f.email_field :email, class: 'form-control' %>
+                  </div>
+                </div>
+
+                <hr/>
+
+                <h4>扩展信息</h4>
+                <div class="form-group">
+                  <%= f.label :full_name, 'Full Name', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7">
+                    <%= f.text_field :full_name, class: "form-control", placeholder: "请输入Full Name" %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :mobile, '电话号码', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7">
+                    <%= f.text_field :mobile, class: "form-control", placeholder: "请输入手机号码 " %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :introduction, '个人描述', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7">
+                    <%= f.text_area :introduction, class: "form-control", rows: 4, cols: 30 %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :city_id, '所属城市', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7">
+                    <%= f.select :city_id, [[@city&.province, @city&.id]], {}, data: { url: search_cities_path }, class: 'form-control' %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :gender, '性别', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7">
+                    <%= f.select :gender, user_gender_search_arr, { include_blank: '请选择性别' }, class: 'form-control' %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :age_range, '年龄段', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7">
+                    <%= f.select :age_range, user_age_range_search_arr, { include_blank: '请选择年龄段' }, class: 'form-control' %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :github_url, 'GitHub', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7">
+                    <%= f.text_field :github_url, class: 'form-control', placeholder: '请输入 GitHub 地址' %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :wechat_id, 'Wechat ID', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7">
+                    <%= f.text_field :wechat_id, class: 'form-control', placeholder: "请输入 Wechat ID" %>
+                  </div>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                  <%= f.label :avatar, '头像', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7">
+                    <div class="space-20"></div>
+                    <%= image_tag (current_user.avatar_url(:thumb).to_s), alt: 'avatar_image', width: '120', class: 'img-circle' if @user.avatar? %>
+                    <%= f.file_field :avatar %>
+                    <%= f.hidden_field :avatar_cache %>
+                    <p class="help-block">JPEG/PNG 80x80px</p>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :is_university_student, '是否是在校大学生', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7 j-is_university_student-select">
+                    <%= f.select :is_university_student, user_is_university_student_search_arr, {}, class: 'form-control' %>
+                  </div>
+                </div>
+
+                <div class="form-group j-user-university">
+                  <%= f.label :university_id, '学校', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7">
+                    <%= f.select :university_id, [[@university&.name, @university&.id]], {}, data: { url: search_universities_city_path(':id') }, class: 'form-control' %>
+                  </div>
+                </div>
+
+                <div class="form-group j-user-id_photo">
+                  <%= f.label :id_photo, '学生证', class: 'col-sm-3 control-label' %>
+                  <div class="col-sm-7">
+                    <div class="space-20"></div>
+                    <%= image_tag (current_user.id_photo_url(:thumb).to_s), alt: 'id_photo_image', width: '180' if @user.id_photo? %>
+                    <%= f.file_field :id_photo %>
+                    <%= f.hidden_field :id_photo_cache %>
+                    <p class="help-block">JPEG/PNG 80x80px</p>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-9">
+                    <%= f.submit "提交", class: 'btn btn-lg btn-primary rounded' %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section><!--end main content-->
+
+<script type="text/javascript">
+$(document).ready(function() {
+  var isUniversityStudentOptionSelected = $('.j-is_university_student-select option:selected').val();
+  if (isUniversityStudentOptionSelected == 'false') {
+    $('.j-user-university').addClass('none');
+    $('.j-user-id_photo').addClass('none');
+  } else {
+    $('.j-user-university').removeClass('none');
+    $('.j-user-id_photo').removeClass('none');
+  }
+});
+
+$(function(){
+  $('.j-is_university_student-select select').on('change', function(e){
+    var optionSelected = $('option:selected', this);
+    var valueSelected  = this.value;
+    if (valueSelected == 'false') {
+      $('.j-user-university').addClass('none');
+      $('.j-user-id_photo').addClass('none');
+    } else {
+      $('.j-user-university').removeClass('none');
+      $('.j-user-id_photo').removeClass('none');
+    }
+  });
+});
+
+// 城市 ajax select
+$(document).ready(function() {
+  $("#user_city_id").select2({
+    placeholder: '请选择或输入城市',
+    allowClear: true,
+    ajax: {
+      url: function() {
+        return $('#user_city_id').attr('data-url');
+      },
+      dataType: 'json',
+      processResults: function(data, page) {
+        var de;
+        return {
+          results: (function() {
+            var i, len, results;
+            results = [];
+            for(i = 0, len = data.length; i < len; i++) {
+              de = data[i];
+              results.push({
+                id: de.id,
+                text: de.province
+              });
+            }
+            return results;
+          })()
+        };
+      },
+      cache: true,
+      minimumInputLength: 1
+    }
+  }).on('change', function() {
+    $('#user_university_id').select2('val', '');
+  });
+
+  $("#user_university_id").select2({
+    placeholder: '请选择或输入学校',
+    allowClear: true,
+    ajax: {
+      url: function() {
+        return $('#user_university_id').attr('data-url').replace(':id', $('#user_city_id').val());
+      },
+      dataType: 'json',
+      processResults: function(data, page) {
+        var de;
+        return {
+          results: (function(){
+            var i, len, results;
+            results = [];
+            for(i = 0, len = data.length; i < len; i++) {
+              de = data[i];
+              results.push({
+                id: de.id,
+                text: de.name
+              });
+            }
+            return results;
+          })()
+        };
+      },
+      cache: true,
+      minimumInputLength: 1
+    }
+  });
+});
+</script>

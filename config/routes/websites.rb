@@ -5,8 +5,18 @@ get    '/login',  to: 'sessions#new'
 post   '/login',  to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
 
-resources :users, only: [:edit, :update]
 resources :account_activations, only: [:edit]
 resources :password_resets,     only: [:new, :create, :edit, :update]
 
 resources :mentors
+
+# 个人中心
+namespace :settings do
+  resource :profile, only: [:show, :update]
+end
+
+# 城市与学校 select2 搜索
+resources :cities, only: [] do
+  get :search, on: :collection
+  get :search_universities, on: :member
+end

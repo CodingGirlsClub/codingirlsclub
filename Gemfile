@@ -29,6 +29,11 @@ gem 'figaro', '~> 1.1'
 # New wave Internationalization support for Ruby.
 gem 'i18n', '~> 0.8.1'
 
+# Upload files in your Ruby applications, map them to a range of ORMs, store them on different backends.
+gem 'carrierwave', '~> 1.1'
+# Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
+gem 'mini_magick', '~> 4.7'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13.0'

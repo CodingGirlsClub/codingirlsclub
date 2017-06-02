@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
 
+  mount_uploader :avatar, AvatarUploader
+  mount_uploader :id_photo, IdentityUploader
+
   attr_accessor :promo_code       # 虚拟属性，用户注册时判断邀请码使用
   attr_accessor :activation_token # 虚拟属性，用户注册时激活帐号使用
   attr_accessor :remember_token   # 虚拟属性，用户登录时记录我使用
@@ -10,7 +13,7 @@ class User < ApplicationRecord
   validates :email,      presence: true, length: { maximum: 180 },
                          format: { with: CGC::Tools::Regular::VALID_EMAIL_REGEX },
                          uniqueness: { case_sensitive: false }
-  validates :password,   presence: true, length: { minimum: 6, maximum: 20 }
+  validates :password,   presence: true, length: { minimum: 6, maximum: 20 }, on: :create
   validates :promo_code, presence: true, length: { maximum: 15 }, on: :create
 
   validate :validate_promo_code, on: :create
@@ -18,6 +21,9 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :create_activation_digest
   after_create :send_activation_email
+
+  # 用户性别， 0: 男，1: 女
+  enum gender: { gender_male: 0, gender_female: 1 }
 
   # 记录用户持久化
   def remember
@@ -68,6 +74,12 @@ class User < ApplicationRecord
   def generate_referral_with(promo_code)
     referral = Referral.find_by(code: promo_code)
     UserReferral.create!(code: promo_code, user_id: id, inviter_id: referral.user_id)
+  end
+
+  # 邀请码
+  def referral
+    return if new_record?
+    Referral.find_or_create_by!(user_id: id, category: Referral.categories[:category_user])
   end
 
   private
