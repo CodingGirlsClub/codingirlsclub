@@ -1,4 +1,5 @@
 class Mentor < ApplicationRecord
+  validates :user_id,          presence: true
   validates :introduce_self,   presence: true, length: { maximum: 200 }
   validates :city_id,          presence: true
   validates :course_ids,       presence: true

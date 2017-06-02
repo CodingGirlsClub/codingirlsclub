@@ -35,7 +35,7 @@
 
           <div class="row field about-yourself">
             <div class="col-xs-12">
-              <%= f.label :introduce_self, '自我介绍' %>
+              <%= f.label :introduce_self, '自我介绍*' %>
               <p class="desc">Tell us about yourself Please list work or education that is relevant to the field of the course as well as any teaching experience, offline or online. Show us that you know the course topic, and that you could teach it.</p>
               <%= f.text_area :introduce_self, rows: '3', cols: '50' %>
             </div>
@@ -55,7 +55,7 @@
           </div>
           <div class="row">
             <div class="col-sm-6 col-xs-12 field">
-              <%= f.label :city_id, '城市' %>
+              <%= f.label :city_id, '城市*' %>
               <%= f.select :city_id, [], {}, data: { url: search_cities_path }, class: 'form-control' %>
             </div>
             <div class="col-sm-6 col-xs-12 field">

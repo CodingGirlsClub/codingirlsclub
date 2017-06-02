@@ -6,7 +6,12 @@ zh-CN:
         email: 邮箱
         password: 密码
         promo_code: 邀请码
+      ambassador:
+        user_id: 申请人
+        self_introduction: 自我介绍
+        resume_url: resume_url
       mentor:
+        user_id: 申请人
         introduce_self: 自我介绍
         city_id: 城市
         course_ids: 课程
@@ -24,17 +29,30 @@ zh-CN:
           attributes:
             name:
               blank: 不能为空
+              too_long: 最多 %{count} 位
             email:
               blank: 不能为空
               invalid: 无效
               taken: 已被注册
+              too_long: 最多 %{count} 位
             password:
               blank: 不能为空
-              too_short: 太短
+              too_short: 最少 %{count} 位
+              too_long: 最多 %{count} 位
             promo_code:
               blank: 不能为空
               not_exist: 不存在
               invalid: 已失效
+              too_long: 最多 %{count} 位
+        ambassador:
+          attributes:
+            user_id:
+              blank: 不能为空
+            self_introduction:
+              blank: 不能为空
+              too_long: 最多 %{count} 位
+            resume_url:
+              too_long: 最多 %{count} 位
         mentor:
           attributes:
             introduce_self:
