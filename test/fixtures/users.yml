@@ -11,3 +11,19 @@ system_user:
   password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
   activated: true
   activated_at: <%= Time.current %>
+
+university_user:
+  name: University User
+  email: university_user@example.com
+  password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
+  activated: true
+  activated_at: <%= Time.current - 1.day %>
+  is_university_student: true
+
+maggie:
+  name: Maggie
+  email: maggie@example.com
+  password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
+  activated: true
+  activated_at: <%= Time.current - 1.day %>
+  is_university_student: false

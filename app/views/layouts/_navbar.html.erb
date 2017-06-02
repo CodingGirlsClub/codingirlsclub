@@ -24,6 +24,20 @@
         </span>
       </div>
       <div class="col-sm-6 text-right">
+        <% if !logged_in? || (logged_in? && current_user.is_university_student?) %>
+          <span>
+            <%= link_to new_ambassador_path do %>
+              <i class="fa fa-pencil"></i>
+              <%= t("Apply Campus Ambassador") %>
+            <% end %>
+          </span>
+        <% end %>
+        <span>
+          <%= link_to '#' do %>
+            <i class="fa fa-pencil"></i>
+            <%= t("Become a Mentor") %>
+          <% end %>
+        </span>
         <% if logged_in? %>
           <span class="username">
             <%= link_to settings_profile_path do %>
@@ -38,18 +52,6 @@
             <% end %>
           </span>
         <% else %>
-          <span>
-            <%= link_to '#' do %>
-              <i class="fa fa-pencil"></i>
-              <%= t("Apply Campus Ambassador") %>
-            <% end %>
-          </span>
-          <span>
-            <%= link_to '#' do %>
-              <i class="fa fa-pencil"></i>
-              <%= t("Become a Mentor") %>
-            <% end %>
-          </span>
           <span>
             <%= link_to login_path do %>
               <i class="fa fa-user"></i>

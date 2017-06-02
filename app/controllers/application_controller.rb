@@ -24,6 +24,13 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end
 
+  def login_required
+    unless logged_in?
+      flash[:danger] = '请先登录'
+      redirect_to login_path
+    end
+  end
+
   private
 
   def current_user
