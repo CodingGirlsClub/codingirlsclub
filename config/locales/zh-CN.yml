@@ -6,6 +6,18 @@ zh-CN:
         email: 邮箱
         password: 密码
         promo_code: 邀请码
+      mentor:
+        introduce_self: 自我介绍
+        city_id: 城市
+        course_ids: 课程
+        why_to_teach: 教学理由
+        master_lang: 擅长的语言
+        teaching_time: 教学时间
+        wechat_id: 微信
+        phone_number: 电话号码
+        github_url: github_url
+        ever_project_url: 项目地址
+        resume_url: resume_url
     errors:
       models:
         user:
@@ -23,6 +35,31 @@ zh-CN:
               blank: 不能为空
               not_exist: 不存在
               invalid: 已失效
+        mentor:
+          attributes:
+            introduce_self:
+              blank: 不能为空
+              too_long: 最多 %{count} 位
+            city_id:
+              blank: 不能为空
+            course_ids:
+              blank: 不能为空
+            why_to_teach:
+              too_long: 最多 %{count} 位
+            master_lang:
+              too_long: 最多 %{count} 位
+            teaching_time:
+              too_long: 最多 %{count} 位
+            wechat_id:
+              too_long: 最多 %{count} 位
+            phone_number:
+              too_long: 最多 %{count} 位
+            github_url:
+              too_long: 最多 %{count} 位
+            ever_project_url:
+              too_long: 最多 %{count} 位
+            resume_url:
+              too_long: 最多 %{count} 位
   Follow Wechat: 关注公众号
   Apply Campus Ambassador: 申请校园大使
   Become a Mentor: 申请助教

@@ -33,12 +33,15 @@
             <% end %>
           </span>
         <% end %>
-        <span>
-          <%= link_to '#' do %>
-            <i class="fa fa-pencil"></i>
-            <%= t("Become a Mentor") %>
-          <% end %>
-        </span>
+        <!-- 未登录，或登录的用户未申请过助教，展示申请链接 -->
+        <% if !logged_in? || (logged_in? && !Mentor.exists?(user_id: current_user.id)) %>
+          <span>
+            <%= link_to new_mentor_path do %>
+              <i class="fa fa-pencil"></i>
+              <%= t("Become a Mentor") %>
+            <% end %>
+          </span>
+        <% end %>
         <% if logged_in? %>
           <span class="username">
             <%= link_to settings_profile_path do %>
@@ -92,7 +95,7 @@
         </li>
 
         <li><%= link_to(t("Courses"), '#') %></li>
-        <li><%= link_to(t("Mentors"), '#') %></li>
+        <li><%= link_to(t("Mentors"), mentors_path) %></li>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t("Corporate Activities") %>

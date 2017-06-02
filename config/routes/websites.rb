@@ -10,7 +10,7 @@ resources :password_resets,     only: [:new, :create, :edit, :update]
 
 resources :ambassadors, only: [:index, :new, :create]
 
-resources :mentors
+resources :mentors, only: [:index, :new, :create]
 
 # 个人中心
 namespace :settings do

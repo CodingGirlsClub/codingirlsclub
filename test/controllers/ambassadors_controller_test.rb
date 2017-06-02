@@ -37,7 +37,7 @@ class AmbassadorsControllerTest < ActionController::TestCase
   end
 
   test 'should reject apply ambassador when user has applying' do
-    user     = users(:applying_ambassador_user)
+    user     = users(:applying_user)
     question = questions(:valid_ambassador_qa_question)
     login_as(user)
     assert_no_difference('Ambassador.count')do
@@ -46,7 +46,7 @@ class AmbassadorsControllerTest < ActionController::TestCase
   end
 
   test 'should reject apply ambassador when user has been an ambassador' do
-    user     = users(:ambassador_user)
+    user     = users(:applied_user)
     question = questions(:valid_ambassador_qa_question)
     login_as(user)
     assert_no_difference('Ambassador.count')do
