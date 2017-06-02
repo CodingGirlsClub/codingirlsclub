@@ -1,8 +1,12 @@
 class AmbassadorsController < ApplicationController
-  before_action :login_required
-  before_action :university_student_required
-  before_action :no_apply_required
-  before_action :set_ambassador_qa
+  before_action :login_required,              only: [:new, :create]
+  before_action :university_student_required, only: [:new, :create]
+  before_action :no_apply_required,           only: [:new, :create]
+  before_action :set_ambassador_qa,           only: [:new, :create]
+
+  def index
+    @ambassadors = Ambassador.where(applied: true)
+  end
 
   def new
     @ambassador = Ambassador.new
