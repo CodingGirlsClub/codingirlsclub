@@ -35,4 +35,22 @@ class AmbassadorsControllerTest < ActionController::TestCase
       post :create, params: {ambassador: {user_id: user.id, self_introduction: 'introduction'}, answers: [{question.id => ''}]}
     end
   end
+
+  test 'should reject apply ambassador when user has applying' do
+    user     = users(:applying_ambassador_user)
+    question = questions(:valid_ambassador_qa_question)
+    login_as(user)
+    assert_no_difference('Ambassador.count')do
+      post :create, params: {ambassador: {user_id: user.id, self_introduction: 'introduction'}, answers: [{question.id => 'bbb'}]}
+    end
+  end
+
+  test 'should reject apply ambassador when user has been an ambassador' do
+    user     = users(:ambassador_user)
+    question = questions(:valid_ambassador_qa_question)
+    login_as(user)
+    assert_no_difference('Ambassador.count')do
+      post :create, params: {ambassador: {user_id: user.id, self_introduction: 'introduction'}, answers: [{question.id => 'bbb'}]}
+    end
+  end
 end

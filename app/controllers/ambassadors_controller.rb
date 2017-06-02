@@ -1,6 +1,7 @@
 class AmbassadorsController < ApplicationController
   before_action :login_required
   before_action :university_student_required
+  before_action :no_apply_required
   before_action :set_ambassador_qa
 
   def new
@@ -44,6 +45,13 @@ class AmbassadorsController < ApplicationController
   def university_student_required
     unless current_user.is_university_student?
       flash[:danger] = '只有在校大学生才可申请校园大使'
+      redirect_to root_path
+    end
+  end
+
+  def no_apply_required
+    if Ambassador.exists?(user_id: current_user.id)
+      flash[:danger] = '申请还在处理中或申请已通过，不可以重复申请'
       redirect_to root_path
     end
   end

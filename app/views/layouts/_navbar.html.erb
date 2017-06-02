@@ -24,7 +24,8 @@
         </span>
       </div>
       <div class="col-sm-6 text-right">
-        <% if !logged_in? || (logged_in? && current_user.is_university_student?) %>
+        <!-- 未登录，或登录的用户为在校大学生且未申请过校园大使，展示申请链接 -->
+        <% if !logged_in? || (logged_in? && current_user.is_university_student? && !Ambassador.exists?(user_id: current_user.id)) %>
           <span>
             <%= link_to new_ambassador_path do %>
               <i class="fa fa-pencil"></i>

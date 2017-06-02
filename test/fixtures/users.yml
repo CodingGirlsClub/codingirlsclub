@@ -27,3 +27,19 @@ maggie:
   activated: true
   activated_at: <%= Time.current - 1.day %>
   is_university_student: false
+
+applying_ambassador_user:
+  name: University User
+  email: applying_ambassador_user@example.com
+  password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
+  activated: true
+  activated_at: <%= Time.current - 1.day %>
+  is_university_student: true
+
+ambassador_user:
+  name: University User
+  email: ambassador@example.com
+  password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
+  activated: true
+  activated_at: <%= Time.current - 1.day %>
+  is_university_student: true
