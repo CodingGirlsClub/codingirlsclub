@@ -25,28 +25,15 @@
       <div class="col-md-3 margin-btm-30">
         <h3>Recent Post</h3>
         <ul class="list-unstyled f-post">
-          <li class="clearfix">
-
-            <a href="#" class="thumb"><%= image_tag "assan/poster_theme.png", class: "img-responsive",  width: "70" %></a>
-            <div class="f-post-content">
-              <%= link_to 'Post title goes here', '#' %>
-              <em>2 days ago</em>
-            </div>
-          </li>
-          <li class="clearfix">
-            <a href="#" class="thumb"><%= image_tag "assan/poster_theme.png", class: "img-responsive",  width: "70" %></a>
-            <div class="f-post-content">
-              <%= link_to 'Post title goes here' %>
-              <em>2 days ago</em>
-            </div>
-          </li>
-          <li class="clearfix">
-            <a href="#" class="thumb"><%= image_tag "assan/poster_theme.png", class: "img-responsive",  width: "70" %></a>
-            <div class="f-post-content">
-              <%= link_to 'Post title goes here' %>
-              <em>2 days ago</em>
-            </div>
-          </li>
+          <% 3.times do %>
+            <li class="clearfix">
+              <%= link_to image_tag('assan/poster_theme.png', class: 'img-responsive', width: '70'), '#', class: 'thumb' %>
+              <div class="f-post-content">
+                <%= link_to 'Post title goes here', '#' %>
+                <em>2 days ago</em>
+              </div>
+            </li>
+          <% end %>
         </ul>
       </div>
       <div class="col-md-3 margin-btm-30">
@@ -75,7 +62,7 @@
         </ul>
         <p class="phone"><i class="fa fa-wechat-"></i>微信客服： codingirls</p>
         <p>Monday - Friday - 9:Am to 5 Pm</p>
-        <p>Questions: <%= link_to 'info@codingirls.club', '#' %></p>
+        <p>Questions: <%= mail_to 'info@codingirls.club', 'info@codingirls.club' %></p>
       </div>
     </div>
   </div>
