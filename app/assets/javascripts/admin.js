@@ -16,12 +16,17 @@
 //= require bootstrap.min
 
 // assan template javascript files
-//= require frontend/bootstrap-hover-dropdown.min
-//= require frontend/custom
-//= require frontend/jquery.flexslider-min
-//= require frontend/jquery.stellar.min
-//= require frontend/jquery.themepunch.revolution.min
-//= require frontend/jquery.themepunch.tools.min
-//= require frontend/owl.carousel.min
-//= require frontend/revolution-custom
-//= require frontend/wow.min
+//= require dashboard/modernizr
+//= require dashboard/app
+//= require plugins/hoe-nav/hoe
+//= require plugins/pace/pace.min
+//= require plugins/slimscroll/jquery.slimscroll.min
+//= require plugins/flot/jquery.flot
+//= require plugins/flot/jquery.flot.tooltip.min
+//= require plugins/flot/jquery.flot.resize
+//= require plugins/flot/jquery.flot.pie
+//= require plugins/flot/jquery.flot.time
+//= require plugins/vectormap/jquery-jvectormap-2.0.2.min
+//= require plugins/vectormap/jquery-jvectormap-world-mill-en
+//= require plugins/chartJs/Chart.min
+//= require dashboard/dashboard
