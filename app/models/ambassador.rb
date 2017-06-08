@@ -13,5 +13,8 @@
 
 class Ambassador < ApplicationRecord
   belongs_to :user
-  belongs_to :university, through: :user
+
+  def university
+    user.university
+  end
 end

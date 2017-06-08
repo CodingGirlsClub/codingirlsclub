@@ -1,0 +1,59 @@
+<h3 class="page-header">详情</h3>
+
+<br/><br/>
+<div class="row">
+
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= @user.name %>
+      </div>
+      <div class="panel-body">
+        <div class="dataTable_wrapper">
+
+          <dl>
+              <dt>
+                <span class="label label-primary">email：</span>
+              </dt>
+              <dd>
+                <%= @user.email %>
+              </dd>
+          </dl>
+
+          <dl>
+              <dt>
+                <span class="label label-primary">id_photos:</span>
+              </dt>
+              <dd>
+                <%= image_tag (@user.id_photo_url(:thumb).to_s) %>
+              </dd>
+          </dl>
+
+          <dl>
+              <dt>
+                <span class="label label-primary">自我介绍:</span>
+              </dt>
+              <dd>
+                <%= @user.description %>
+              </dd>
+          </dl>
+          
+          <div class="approve_status">
+            <% if @user.casting_check_pass? %>
+              <p>审核已通过</p>
+            <% elsif @user.casting_check_refuse? %>
+              <p>审核已拒绝</p> 
+            <% else %>
+               <%= link_to "审核通过", approved_admin_user_path(@user), remote: true %>
+               |
+               <%= link_to "审核拒绝", unapproved_admin_user_path(@user), remote: true %>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,5 @@
+<% if @user.casting_check_pass? %>
+  <p>审核已通过</p>
+<% elsif @user.casting_check_refuse? %>
+  <p>审核已拒绝</p>
+<% end %>

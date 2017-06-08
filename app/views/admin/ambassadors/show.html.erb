@@ -1,0 +1,45 @@
+<div class="row">
+<div class="col-lg-9">
+  <h3 class="page-header">校园大使申请审核详情</h3>
+</div>
+<div class="col-lg-3" style="margin-top: 45px;">
+  <p><%= link_to "返回列表", admin_ambassadors_path %></p>
+</div>
+
+</div>
+<br/><br/>
+
+<div class="row">
+  
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        用户: <%= @ambassador.user.name %> 
+        <br>
+        申请宣言： <%= @ambassador.title %>
+        <hr/>
+      </div>
+      回答列表：
+      <div class="panel-body">
+        <div class="dataTable_wrapper">
+          <% @answer_list.each do |answer|%>
+
+                 <dl>
+                 <dt>
+                    <span class="label label-primary">Title: <%= answer[0]%> </span>
+                  </dt>
+                 <dd>
+                   <%= answer[1] %>
+                 </dd>
+                </dl>
+
+              
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
