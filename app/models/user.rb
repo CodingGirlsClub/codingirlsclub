@@ -34,7 +34,6 @@ class User < ApplicationRecord
   belongs_to :city
   belongs_to :university, optional: true
 
-  has_one :latent_user
   has_one :ambassador
   has_one :mentor
   has_many :accounts
