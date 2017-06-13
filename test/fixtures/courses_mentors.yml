@@ -1,0 +1,7 @@
+applying:
+  course_id: <%= ActiveRecord::FixtureSet.identify(:introduce_ruby) %>
+  mentor_id: <%= ActiveRecord::FixtureSet.identify(:applying_mentor) %>
+
+applied:
+  course_id: <%= ActiveRecord::FixtureSet.identify(:introduce_ruby) %>
+  mentor_id: <%= ActiveRecord::FixtureSet.identify(:applies_mentor) %>

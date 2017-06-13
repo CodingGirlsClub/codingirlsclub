@@ -25,7 +25,7 @@ module Codingirlsclub
     config.i18n.available_locales = ['zh-CN', 'en']
     config.i18n.fallbacks = true  #当应用程序需要的语言文件缺失时，使用默认的语言文件default_locale  end
 
-    config.action_mailer.default_url_options = { host: 'codingirls.club' }
+    config.action_mailer.default_url_options = { host: ENV['SITE_HOST'] }
 
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.precompile << %w(vendor/assets/*)

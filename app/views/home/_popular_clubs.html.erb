@@ -1,0 +1,28 @@
+<div class="col-md-6 margin-btm-30">
+  <h3 class="text-uppercase  left-title margin-btm-40">热门俱乐部</h3>
+  <ul class="list-unstyled event-box">
+    <% 4.times do %>
+      <li class=" clearfix">
+        <div class="col-md-6">
+          <%= image_tag "assan/poster.png", class: "media-object",  size: "240x90" %>
+        </div>
+        <div class="event-content">
+          <h4><%= link_to 'Beijing Coding Girls Club', '#' %></h4>
+          <p><i class="fa fa-users"></i>3456</p>
+          <p><i class="fa fa-map-marker"></i>45 Events</p>
+          <p>
+          <%= link_to '#' do %>
+            <i class="fa fa-caret-right"></i>
+            详情
+          <% end %>
+          </p>
+        </div>
+      </li>
+    <% end %>
+    <li class="text-right">
+      <a href="#" class="btn btn-border-skin"><%= '查看所有活动' %>
+      <i class="fa fa-angle-right"></i>
+      </a>
+    </li>
+  </ul>
+</div>

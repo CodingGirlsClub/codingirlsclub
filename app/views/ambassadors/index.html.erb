@@ -1,0 +1,76 @@
+<%= render partial: 'shared/frontend/breadcrumb', locals: { action_type: '校园大使' } %>
+<div class="row" id="courses-panels">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="card course-detail">
+      <div class="large-title">查看校园大使</div>
+      <p class="bottom-buffer-sm">
+      Coding Girls Club is a vibrant educational community driven by mentors spanning multiple areas of expertise, geographies and languages. 	<br>
+      Find out more about who we are and why we’re committed to making CGC the best place to master programming skills.
+      </p>
+      <div class="row">
+        <div class="col-sm-12 bottom-buffer-sm">
+          <div class="tags">
+            <div class="filter-title">校园大使</div>
+            <div class="skills-container"></div>
+            <div class="mentor-images top-buffer-sm row">
+              <% @ambassadors.each do |ambassador| %>
+                <a data-mentor-id="<%= ambassador.id %>" href="#view_mentor_profile_card_<%= ambassador.id %>">
+                  <div class="image-wrapper">
+                    <%= image_tag (ambassador.user.avatar_url(:thumb).to_s), alt: "" %>
+                  </div>
+                  <div class="name"><%= ambassador.user.name %></div>
+                </a>
+                <div class="modalDialog" id="view_mentor_profile_card_<%= ambassador.id %>">
+                  <div class="profile-card">
+                    <div class="details">
+                      <a class="modal-close" href="#close">✕</a>
+                      <div class="image-name-wrapper">
+                        <div class="image-wrapper">
+                          <%= image_tag(ambassador.user.avatar_url(:thumb).to_s) %>
+                        </div>
+                        <div class="main-wrapper">
+                          <div class="name"><%= ambassador.user.name %></div>
+                          <div class="occupation"></div>
+                        </div>
+                      </div>
+                      <div class="info top-buffer-sm"><%= ambassador.self_introduction %></div>
+                    </div>
+                    <div class="linked-in">
+                      <%= link_to '查看TA的个人博客', ambassador.resume_url, target: '_blank' %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card course-detail">
+      <div class="large-title">加入我们校园大使!</div>
+      <lead>
+      We’re always accepting applications from experienced professionals with passion for teaching. <br><br>
+      All of our community courses are run for free, and we do this with the help of our amazing volunteer instructors. <br><br>
+
+      Our instructors come from a variety of coding background, and include computer science/technical post graduates, company based professionals with programming experience, freelance developers and university lecturers. All instructors work on a voluntary basis.
+      </lead>
+      <div class="join-mentors">
+        <% 3.times do %>
+          <div class="col-sm-4 col-xs-12">
+            <div class="image-wrapper">
+              <div class="image" style="background-image: url('/assets/join_mentors/1-8d6806db430897c8a1ac7ff89e1014b49ede2a21c98121f1705f9ad5a7601207.png')"></div>
+            </div>
+            <div class="text">Strengthen and showcase your expertise</div>
+          </div>
+        <% end %>
+        <div class="col-xs-12 text-center">
+          <%= link_to '加入我们', root_path, class: 'solid-button-blue top-buffer-md bottom-buffer-sm' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(Mentive.modalOverlayClose);
+  $(Mentive.logMentorShortBioCard.call(this, '.mentor-images > a'));
+</script>

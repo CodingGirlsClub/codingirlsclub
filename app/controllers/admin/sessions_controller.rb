@@ -2,7 +2,7 @@ class Admin::SessionsController < Admin::BaseController
   skip_before_action :require_admin_login
 
   def create
-    if !::Cgc::Tools::Regular.match_email(params[:email])
+    if !::CGC::Tools::Regular.match_email(params[:email])
       flash[:alert] = "Email格式不正确！"
       render :new
     elsif params[:email].blank? or params[:password].blank?

@@ -1,0 +1,9 @@
+applying_ambassador:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:applying_user) %>
+  self_introduction: introduction
+  applied: false
+
+apply_pass_ambassador:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:applied_user) %>
+  self_introduction: introduction
+  applied: true

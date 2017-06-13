@@ -1,0 +1,24 @@
+<%= render partial: 'shared/frontend/breadcrumb', locals: { action_type: '找回密码' } %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="login-register-form">
+        <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+          <%= render partial: 'shared/error_messages', locals: { object: @user } %>
+          <%= hidden_field_tag :email, @user.email %>
+          <div class="form-group">
+            <%= f.password_field :password, class: 'form-control', placeholder: 'password' %>
+            <span class="input-icon"><i class=" fa fa-lock"></i></span>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'password confirmation' %>
+            <span class="input-icon"><i class=" fa fa-lock"></i></span>
+          </div>
+          <%= f.submit '修改密码', class: 'btn btn-lg btn-block btn-skin' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="space70"></div>

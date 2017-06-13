@@ -1,1 +1,3 @@
-MAILER_TO: 'xxx@xxx.com'
+SUBMAIL_FROM: 'xxxxx'
+SUBMAIL_USERNAME: 'username'
+SUBMAIL_PASSWORD: 'password'

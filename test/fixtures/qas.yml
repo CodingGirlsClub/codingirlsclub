@@ -1,0 +1,11 @@
+valid_ambassador_qa:
+  title: Apply Ambassador
+  description: 申请校园大使
+  type: AmbassadorQa
+  applied: true
+
+invalid_ambassador_qa:
+  title: Apply Ambassador
+  description: 申请校园大使
+  type: AmbassadorQa
+  applied: false

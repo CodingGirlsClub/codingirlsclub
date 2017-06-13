@@ -1,0 +1,36 @@
+<%= render partial: 'shared/frontend/breadcrumb', locals: { action_type: '注册' } %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="login-register-form">
+        <%= form_for(@user, url: signup_path) do |f| %>
+          <%= render partial: 'shared/error_messages', locals: { object: @user } %>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: '用户名' %>
+            <span class="input-icon"><i class=" fa fa-user"></i></span>
+          </div>
+          <div class="form-group">
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+            <span class="input-icon"><i class=" fa fa-envelope"></i></span>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password, class: 'form-control', placeholder: '密码' %>
+            <span class="input-icon"><i class=" fa fa-lock"></i></span>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :comfirm_password, class: 'form-control', placeholder: '再输入一次密码' %>
+            <span class="input-icon"><i class=" fa fa-lock"></i></span>
+          </div>
+
+          <div class="form-group">
+            <%= f.text_field :promo_code, class: 'form-control', placeholder: '邀请码' %>
+          </div>
+
+          <%= f.submit '注册', class: 'btn btn-lg btn-block btn-skin' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="space70"></div>

@@ -1,0 +1,9 @@
+applying_mentor:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:applying_user) %>
+  introduce_self: introduce
+  city_id: <%= ActiveRecord::FixtureSet.identify(:beijing) %>
+
+applied_mentor:
+  user_id: <%= ActiveRecord::FixtureSet.identify(:applied_user) %>
+  introduce_self: introduce
+  city_id: <%= ActiveRecord::FixtureSet.identify(:beijing) %>
