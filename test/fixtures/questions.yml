@@ -1,0 +1,7 @@
+valid_ambassador_qa_question:
+  qa: valid_ambassador_qa
+  title: 你对校园大使的看法
+
+invalid_ambassador_qa_question:
+  qa: valid_ambassador_qa
+  title: 你对校园大使的看法

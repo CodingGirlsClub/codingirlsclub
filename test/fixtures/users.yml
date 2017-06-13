@@ -1,0 +1,45 @@
+michael:
+  name: Michael Example
+  email: michael@example.com
+  password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
+  activated: true
+  activated_at: <%= Time.current %>
+
+system_user:
+  name: System Example
+  email: system@example.com
+  password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
+  activated: true
+  activated_at: <%= Time.current %>
+
+university_user:
+  name: University User
+  email: university_user@example.com
+  password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
+  activated: true
+  activated_at: <%= Time.current - 1.day %>
+  is_university_student: true
+
+maggie:
+  name: Maggie
+  email: maggie@example.com
+  password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
+  activated: true
+  activated_at: <%= Time.current - 1.day %>
+  is_university_student: false
+
+applying_user:
+  name: University User
+  email: applying_user@example.com
+  password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
+  activated: true
+  activated_at: <%= Time.current - 1.day %>
+  is_university_student: true
+
+applied_user:
+  name: University User
+  email: applied_user@example.com
+  password_digest: <%= CGC::Tools::Regular.user_digest('password') %>
+  activated: true
+  activated_at: <%= Time.current - 1.day %>
+  is_university_student: true

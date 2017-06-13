@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require frontend/profile
+ *= require frontend/ambassadors
  */
 
  @import "bootstrap.min";
@@ -21,3 +23,4 @@
  @import "frontend/owl.carousel.min";
  @import "frontend/owl.theme.default.min";
  @import "frontend/settings";
+ @import "frontend/select2.min";

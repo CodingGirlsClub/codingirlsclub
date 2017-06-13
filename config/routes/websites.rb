@@ -1,25 +1,24 @@
-resources :sessions
+get  '/signup', to: 'users#new'
+post '/signup', to: 'users#create'
 
-resources :users do
-  member do
-    get :identity_selector
-    patch :identity_selector
-  end
-  collection do
-    get :access_invite_code, :access_campus_ambassador, :reset_password, :forget_password
-    post :access_invite_code, :access_campus_ambassador, :reset_password, :forget_password
-  end
+get    '/login',  to: 'sessions#new'
+post   '/login',  to: 'sessions#create'
+delete '/logout', to: 'sessions#destroy'
 
+resources :account_activations, only: [:edit]
+resources :password_resets,     only: [:new, :create, :edit, :update]
+
+resources :ambassadors, only: [:index, :new, :create]
+
+resources :mentors, only: [:index, :new, :create]
+
+# 个人中心
+namespace :settings do
+  resource :profile, only: [:show, :update]
 end
 
-resources :mentors
-
-get '/signup', to: 'users#new'
-
-get  '/login', to: 'sessions#new'
-post '/login', to: 'sessions#create'
-
-get  '/token_login', to: 'sessions#token_login'
-post '/token_login', to: 'sessions#token_login'
-
-delete '/logout', to: 'sessions#destroy'
+# 城市与学校 select2 搜索
+resources :cities, only: [] do
+  get :search, on: :collection
+  get :search_universities, on: :member
+end

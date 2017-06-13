@@ -1,0 +1,24 @@
+<!--call to action-->
+<div class="cta-skin jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <h3>学编程，一起做有趣的事情</h3>
+        <blockquote class="bg-primary lead">
+          <p>码妞俱乐部是一个社会企业, 所有收入都会重新投入到运营社区免费课程和其他活动，帮助聪明的女性在科技领域追求卓越职业人生。
+          <br>
+          <br>
+          我们为女性提供零基础编程课程、社区支持和企业资源。帮助女性接触编程、了解编程和入门编程，提高女性在科技领域的数量，让更多企业和个人关注和帮助女性在科技领域的发展。
+          </p>
+        </blockquote>
+      </div>
+      <% unless logged_in? %>
+        <div class="col-sm-4 text-right">
+          <div class="space20"></div>
+          <a href=<%= signup_path %> class="btn btn-lg btn-border-white">马上加入<i class="fa fa-edit"></i></a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!--end call to action-->

@@ -1,0 +1,17 @@
+<li class="col-md-6 white-bg">
+  <h4 class="main-heading">新闻</h4>
+  <% 3.times do %>
+    <div class="latest-news">
+      <a href="#" class="thumb">
+        <%= image_tag("assan/g1.jpg", class: "img-responsive", alt:"", width: "100") %>
+      </a>
+      <div class="news-content">
+        <h5><%= link_to 'Loem ipsum dolor amet', '#' %></h5>
+        <p>
+        It is a long established fact that a reader will be distracted by the readable content...
+        <%= link_to '查看详情', '#' %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</li>

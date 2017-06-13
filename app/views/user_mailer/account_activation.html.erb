@@ -1,0 +1,4 @@
+<h1>Coding Girls Club</h1>
+<p>Hi <%= @user.name %>,</p>
+欢迎注册 Coding Girls Club, 请点击下面链接激活帐号
+<%= link_to '点击激活', edit_account_activation_url(@user.activation_token, email: @user.email) %>

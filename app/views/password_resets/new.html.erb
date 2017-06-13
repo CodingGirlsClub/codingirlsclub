@@ -1,0 +1,18 @@
+<%= render partial: 'shared/frontend/breadcrumb', locals: { action_type: '找回密码' } %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="login-register-form">
+        <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+          <div class="form-group">
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+            <span class="input-icon"><i class=" fa fa-envelope"></i></span>
+          </div>
+          <%= f.submit '提交', class: 'btn btn-lg btn-block btn-skin' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="space70"></div>

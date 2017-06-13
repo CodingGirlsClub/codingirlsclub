@@ -1,0 +1,147 @@
+<div class="row mentor-profile">
+  <div class="blue-bg col-xs-12"></div>
+  <div class="content col-xs-12">
+    <%= form_for @mentor do |f| %>
+      <%= render partial: 'shared/error_messages', locals: { object: @mentor } %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <div class="row">
+        <h3 class="white-title line-height-40">申请助教</h3>
+        <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 inner-container bottom-buffer-md">
+          <div class="row bottom-buffer-sm">
+            <div class="col-xs-12">
+              <div class="padding border-light bottom-buffer-sm">
+                <b>Thank you for your interest in becoming a mentor!</b>
+                The process to become a mentor is simple. First, you apply to teach a course. If you are approved for the course, we will contact you to make a schedule. Let's get started!
+              </div>
+              <label class="bottom-buffer-sm" for="mentor_application_course">
+                Please select a course you would like to be a mentor for. If a course does not appear in the list, we're currently not interviewing mentors for that course. To learn more about any of the following courses, please
+                <%= link_to '所有课程', '#' %>
+              </label>
+              <div class="course_select text-center">
+                <%= f.collection_check_boxes :course_ids, Course.all, :id, :name %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 inner-container bottom-buffer-md">
+          <div class="bottom-buffer-md border-light padding">
+            To help make sure students get the best learning experience, mentors are reviewed and approved for each new course they wish to teach. After being approved for a course, you could start offering sections for it.
+            <br>
+            This is a simple application, you will be asked to provide some
+            <b>basic information</b>. We will send your application updates to
+            <b>kevin.wenyang@gmail.com</b>.</div>
+          <div class="large-text bottom-buffer-sm">基本信息</div>
+
+          <div class="row field about-yourself">
+            <div class="col-xs-12">
+              <%= f.label :introduce_self, '自我介绍*' %>
+              <p class="desc">Tell us about yourself Please list work or education that is relevant to the field of the course as well as any teaching experience, offline or online. Show us that you know the course topic, and that you could teach it.</p>
+              <%= f.text_area :introduce_self, rows: '3', cols: '50' %>
+            </div>
+          </div>
+          <div class="row field">
+            <div class="col-xs-12">
+              <%= f.label :why_to_teach, '教学理由' %>
+              <p class="desc">Explain why you are interested in this course.</p>
+              <%= f.text_area :why_to_teach, rows: '3', cols: '50' %>
+            </div>
+          </div>
+          <div class="row field">
+            <div class="col-xs-12">
+              <%= f.label :master_lang, '擅长的语言' %>
+              <%= f.text_field :master_lang, class: 'form-control', placeholder: '请填写你擅长的语言，并以逗号分隔' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-xs-12 field">
+              <%= f.label :city_id, '城市*' %>
+              <%= f.select :city_id, [], {}, data: { url: search_cities_path }, class: 'form-control' %>
+            </div>
+            <div class="col-sm-6 col-xs-12 field">
+              <%= f.label :teaching_time, '教学时间' %>
+              <%= f.select :teaching_time, mentor_teaching_time_select_arr, {}, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-xs-12 field">
+              <%= f.label :phone_number, '电话号码' %>
+              <%= f.text_field :phone_number, class: 'form-control' %>
+            </div>
+            <div class="col-sm-6 col-xs-12 field">
+              <%= f.label :wechat_id, '微信' %>
+              <%= f.text_field :wechat_id, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row field">
+            <div class="col-xs-12">
+              <%= f.label :github_url, 'github_url' %>
+              <%= f.text_field :github_url, class: 'form-control', placeholder: "https://github.com/sundevilyang" %>
+            </div>
+          </div>
+          <div class="row field">
+            <div class="col-xs-12">
+              <%= f.label :ever_project_url, '项目地址' %>
+              <%= f.text_field :ever_project_url, class: 'form-control', placeholder: "请填写所做项目的地址" %>
+            </div>
+          </div>
+          <div class="row field">
+            <div class="col-xs-12">
+              <%= f.label :resume_url, 'resume_url' %>
+              <%= f.text_field :resume_url, class: 'form-control', placeholder: "Please input a URL to your resume" %>
+            </div>
+          </div>
+          <br/>
+          <div class="row field">
+            <div class="col-xs-12 bottom-buffer-sm text-center">
+              <%= f.submit "提交审核", class: 'btn btn-skin btn-lg' %>
+            </div>
+            <div class="col-xs-12 bottom-buffer-lg text-center">
+              <div class="small">Please note that your application will be reviewed in 3 days.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<style type="text/css">
+input[type=checkbox] {
+  margin: 4px 5px 0 20px;
+}
+</style>
+
+<script type='text/javascript'>
+$(document).ready(function() {
+  $("#mentor_city_id").select2({
+    placeholder: '请选择或输入城市',
+    allowClear: true,
+    ajax: {
+      url: function() {
+        return $('#mentor_city_id').attr('data-url');
+      },
+      dataType: 'json',
+      processResults: function(data, page) {
+        var de;
+        return {
+          results: (function() {
+            var i, len, results;
+            results = [];
+            for(i = 0, len = data.length; i < len; i++) {
+              de = data[i];
+              results.push({
+                id: de.id,
+                text: de.province
+              });
+            }
+            return results;
+          })()
+        };
+      },
+      cache: true,
+      minimumInputLength: 1
+    }
+  });
+});
+</script>

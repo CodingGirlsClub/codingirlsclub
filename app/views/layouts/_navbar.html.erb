@@ -17,31 +17,52 @@
           <button id="show-img" type="button" class="btn btn-default" data-toggle="modal" data-target="#my-modal"><i class="fa fa-wechat"></i> <%= t("Follow Wechat") %></button>
         </span>
         <span>
-          <%= mail_to ENV['MAILER_TO'] do %>
+          <%= mail_to 'info@codingirls.club' do %>
             <i class="fa fa-envelope"></i>
             info@codingirls.club
           <% end %>
         </span>
       </div>
       <div class="col-sm-6 text-right">
-        <span>
-          <%= link_to '#' do %>
-            <i class="fa fa-pencil"></i>
-            <%= t("Apply Campus Ambassador") %>
-          <% end %>
-        </span>
-        <span>
-          <%= link_to '#' do %>
-            <i class="fa fa-pencil"></i>
-            <%= t("Become a Mentor") %>
-          <% end %>
-        </span>
-        <span>
-          <%= link_to login_path do %>
-            <i class="fa fa-user"></i>
-            <%= t("Sign In") %>
-          <% end %>
-        </span>
+        <!-- 未登录，或登录的用户为在校大学生且未申请过校园大使，展示申请链接 -->
+        <% if !logged_in? || (logged_in? && current_user.is_university_student? && !Ambassador.exists?(user_id: current_user.id)) %>
+          <span>
+            <%= link_to new_ambassador_path do %>
+              <i class="fa fa-pencil"></i>
+              <%= t("Apply Campus Ambassador") %>
+            <% end %>
+          </span>
+        <% end %>
+        <!-- 未登录，或登录的用户未申请过助教，展示申请链接 -->
+        <% if !logged_in? || (logged_in? && !Mentor.exists?(user_id: current_user.id)) %>
+          <span>
+            <%= link_to new_mentor_path do %>
+              <i class="fa fa-pencil"></i>
+              <%= t("Become a Mentor") %>
+            <% end %>
+          </span>
+        <% end %>
+        <% if logged_in? %>
+          <span class="username">
+            <%= link_to settings_profile_path do %>
+              <i class='fa fa-user'></i>
+              <%= "#{current_user.name}" %>
+            <% end %>
+          </span>
+          <span>
+            <%= link_to logout_path, method: :delete, class: 'apply' do %>
+              <i class='fa fa-pencil'></i>
+              <%= '退出' %>
+            <% end %>
+          </span>
+        <% else %>
+          <span>
+            <%= link_to login_path do %>
+              <i class="fa fa-user"></i>
+              <%= t("Sign In") %>
+            <% end %>
+          </span>
+        <% end %>
       </div>
     </div>
   </div>
@@ -50,12 +71,6 @@
 <nav class="navbar navbar-default navbar-static-top yamm">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <%= link_to image_tag("CGC02.png", size: "210x42"), root_path,  class: 'navbar-brand', style: "max-height: 100%;display:inline-block;padding-top: 8px;" %>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -66,7 +81,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><%= link_to(t("How Club Works"), '#') %></li>
-            <li><%= link_to(t("Campus Ambassador"), '#') %></li>
+            <li><%= link_to(t("Campus Ambassador"), ambassadors_path) %></li>
             <li><%= link_to(t("All Clubs"), '#') %></li>
             <li><%= link_to(t("All Events"), '#') %></li>
             <li><%= link_to("F.A.Q", '#') %></li>
@@ -74,7 +89,7 @@
         </li>
 
         <li><%= link_to(t("Courses"), '#') %></li>
-        <li><%= link_to(t("Mentors"), '#') %></li>
+        <li><%= link_to(t("Mentors"), mentors_path) %></li>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t("Corporate Activities") %>

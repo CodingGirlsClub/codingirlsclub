@@ -1,0 +1,33 @@
+<div class="pattern-bg">
+  <div class="container">
+    <div class="center-heading margin-btm-50">
+      <h2>赞助商</h2>
+      <span class="border-width"></span>
+      <p>It is a long established fact that a reader will be distracted by the readable content</p>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <div class="owl-carousel owl-theme testi-slider">
+          <% 3.times do %>
+            <div class="item">
+              <%= image_tag("assan/1.jpg", alt: "", class: "img-circle") %>
+              <p>Donec fringilla lacinia laoreet. Vestibulum ultrices blandit tempor. Aenean magna elit, varius eget quam a, posuere... </p>
+              <h4>John Doe - <em>Web Design</em></h4>
+              <div class="rating">
+                <% 4.times do %>
+                  <i class="fa fa-star"></i>
+                <% end %>
+                <i class="fa fa-star-half-full"></i>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+.owl-carousel .owl-item img {width: 100px;}
+</style>

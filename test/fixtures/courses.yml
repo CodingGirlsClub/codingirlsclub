@@ -1,0 +1,7 @@
+introduce_ruby:
+  topic_id: <%= ActiveRecord::FixtureSet.identify(:ruby) %>
+  name: Introduce Ruby
+
+introduce_python:
+  topic_id: <%= ActiveRecord::FixtureSet.identify(:python) %>
+  name: Introduce Python
