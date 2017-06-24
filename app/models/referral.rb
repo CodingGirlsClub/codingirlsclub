@@ -3,6 +3,7 @@ class Referral < ApplicationRecord
   enum category: { category_system: 0, category_user: 1 }
 
   before_create :set_code_and_expired_at
+  validates_presence_of :user_id, :if => :category_user?
 
   private
 

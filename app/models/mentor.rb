@@ -19,9 +19,9 @@
 #
 
 class Mentor < ApplicationRecord
+  # FIXME: validates :city_id,          presence: true
   validates :user_id,          presence: true
   validates :introduce_self,   presence: true, length: { maximum: 200 }
-  validates :city_id,          presence: true
   validates :course_ids,       presence: true
   validates :why_to_teach,     length: { maximum: 200 }
   validates :master_lang,      length: { maximum: 50 }
@@ -33,6 +33,9 @@ class Mentor < ApplicationRecord
   validates :resume_url,       length: { maximum: 255 }
 
   belongs_to :user, optional: true
-  belongs_to :city, through: :user
   has_and_belongs_to_many :courses, join_table: :courses_mentors
+
+  def city
+    user.city
+  end
 end

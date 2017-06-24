@@ -44,7 +44,7 @@ class User < ApplicationRecord
 
   validate :validate_promo_code, on: :create
 
-  belongs_to :city
+  belongs_to :city, optional: true # Q:注册时要不要填城市
   belongs_to :university, optional: true
 
   has_one :ambassador

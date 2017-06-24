@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         @user.save!
         @user.generate_referral_with(params[:user][:promo_code])
       end
-      flash[:success] = '请通过邮件激活帐号'
+      flash[:success] = I18n.t('Registered Successfully')
       redirect_to root_path
     else
       render :new
