@@ -26,3 +26,5 @@
 //= require frontend/revolution-custom
 //= require frontend/wow.min
 //= require frontend/select2.full.min
+
+//= require frontend/profiles
