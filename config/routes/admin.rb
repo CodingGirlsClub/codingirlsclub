@@ -5,7 +5,7 @@ namespace :admin do
   resources :sessions
   resources :users do
     collection do
-      get :casting_check, :general_tokens
+      get :general_tokens, :gen_general_token
     end
     member do
       get :approved, :unapproved, :gen_signup_link

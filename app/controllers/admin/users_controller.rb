@@ -1,8 +1,4 @@
 class Admin::UsersController < Admin::BaseController
-  def casting_check
-    # @users = User.casting_check_list.page(params[:page]).per(10)
-  end
-
   def show
     @user = User.find params[:id]
   end
