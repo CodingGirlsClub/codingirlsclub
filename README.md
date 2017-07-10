@@ -21,3 +21,7 @@
 * 版本控制
   1. 使用 `git`
   2. 使用 `git-flow` 推荐流程， [git-flow](https://github.com/petervanderdoes/gitflow-avh)
+
+
+css在vendor/assets/stylesheets目录下，公用的文件直接在这个目录下，前端私有的文件在frontend目录下; js文件vendor/assets/javascripts目录下，公用的文件直接在这个目录下，前端私有的文件在frontend目录下；
+字体文件在 app/assets/fonts目录下

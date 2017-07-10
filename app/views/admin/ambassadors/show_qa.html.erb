@@ -1,0 +1,33 @@
+<h3 class="page-header">详情</h3>
+
+<br/><br/>
+<div class="row">
+  
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        问题名称： <%= @qa.name %>
+        <br/>
+        问题描述： <%= @qa.description %>
+      </div>
+      问题列表：
+      <div class="panel-body">
+        <div class="dataTable_wrapper">
+          <% @qa.questions.each do |q|%>
+              <dl>
+                 <dt>
+                    <span class="label label-primary">Title: </span>
+                  </dt>
+              <dd>
+                <%= q.title %>
+              </dd>
+              </dl>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,13 @@
+<div class="row nested-fields" style="padding: 0 0 5px 0;">
+  <div class="col-xs-1 field_index">问题：</div>
+  
+  <div class="col-xs-6 title">
+    <%= f.text_field :title,  size: 50 %><br>
+  </div>
+  
+  <div class="col-xs-2">
+    <%= link_to_remove_association raw('<i class="fa fa-times"></i>删除'), f, :class => "btn btn-danger" %>
+  </div>
+
+  <br/>
+</div>

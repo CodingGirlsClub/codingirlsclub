@@ -1,0 +1,132 @@
+<div class="row">
+<div class="col-lg-9">
+  <h3 class="page-header">Mentor申请审核详情</h3>
+</div>
+<div class="col-lg-3" style="margin-top: 45px;">
+  <p><%= link_to "返回列表", admin_mentors_path %></p>
+</div>
+
+</div>
+<br/><br/>
+
+<div class="row">
+  
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        用户: <%= @mentor.user.name %> 
+      </div>
+      回答列表：
+      <div class="panel-body">
+        <div class="dataTable_wrapper">
+          <% @mentor.courses.each_with_index do |c, idx|%>
+              <dl>
+                 <dt>
+                    <span class="label label-primary">课程名<%= idx+1 %>:  </span>
+                  </dt>
+                 <dd>
+                   <%= c.name %>
+                 </dd>
+              </dl>
+          <% end %>
+           <dl>
+                 <dt>
+                    <span class="label label-primary">自我介绍:  </span>
+                  </dt>
+                 <dd>
+                    <%= @mentor.introduce_self %>
+                 </dd>
+           </dl>
+
+           <dl>
+                 <dt>
+                    <span class="label label-primary">申请原因:  </span>
+                  </dt>
+                 <dd>
+                    <%= @mentor.why_to_teach %>
+                 </dd>
+           </dl>
+
+           <dl>
+                 <dt>
+                    <span class="label label-primary">擅长语言:  </span>
+                  </dt>
+                 <dd>
+                    <%= @mentor.master_lang %>
+                 </dd>
+           </dl>
+
+           <dl>
+                 <dt>
+                    <span class="label label-primary">城市:  </span>
+                  </dt>
+                 <dd>
+                    <%= @mentor.user.city.province %>
+                 </dd>
+           </dl>
+
+           <dl>
+                 <dt>
+                    <span class="label label-primary">教课时间:  </span>
+                  </dt>
+                 <dd>
+                    <%= @mentor.teaching_time %>
+                 </dd>
+           </dl>
+
+           <dl>
+                 <dt>
+                    <span class="label label-primary">电话号码:  </span>
+                  </dt>
+                 <dd>
+                    <%= @mentor.phone_number %>
+                 </dd>
+           </dl>
+
+           <dl>
+                 <dt>
+                    <span class="label label-primary">微信号:  </span>
+                  </dt>
+                 <dd>
+                    <%= @mentor.wechat_id %>
+                 </dd>
+           </dl>
+
+           <dl>
+                 <dt>
+                    <span class="label label-primary">GitHub URL:  </span>
+                  </dt>
+                 <dd>
+                    <%= @mentor.github_url %>
+                 </dd>
+           </dl>
+
+           <dl>
+                 <dt>
+                    <span class="label label-primary">曾经参与的项目:  </span>
+                  </dt>
+                 <dd>
+                    <%= @mentor.ever_project_url %>
+                 </dd>
+           </dl>
+
+           <dl>
+                 <dt>
+                    <span class="label label-primary">简历URL:  </span>
+                  </dt>
+                 <dd>
+                    <%= @mentor.resume_url %>
+                 </dd>
+           </dl>
+
+
+        </div>
+      </div>
+
+      <%= link_to "通过申请", apply_admin_mentor_path(@mentor) %>
+
+    </div>
+  </div>
+</div>
+
+

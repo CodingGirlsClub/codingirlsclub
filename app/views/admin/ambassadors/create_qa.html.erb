@@ -1,0 +1,52 @@
+<% content_for :tail do %>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    add_index();
+
+    $('#questions_fields').on('cocoon:after-insert cocoon:after-remove', function() {
+        add_index();
+    });
+  });
+
+  </script>
+<% end %>
+
+<div class="col-md-12">
+  <div class="edit-registration-panel panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <h1>创建校园大使申请问题</h1>
+      </h3>
+    </div>
+    <div class="panel-body">
+       <%= form_for @qa, url: create_qa_admin_ambassadors_path  do |f| %>
+          <div class="field">
+          <label>问题说明: </label> <%= f.text_field :name, size: 50 %><br/>
+          <label>问题描述: </label> <%= f.text_area :description, size: "50x5" %>
+
+
+         <h2>创建问题：</h2>
+         <div id="questions_fields" style="padding:20px 0 100px 20px;">
+              <%= f.fields_for :questions do |ff| %>
+                  <%= render 'question_fields', f: ff %>
+              <% end %>
+              <%= link_to_add_association raw('<i class="fa fa-plus"></i>添加新问题'),
+                              f, :questions,
+                              :id => 'new_question',
+                              :class => "btn btn-success",
+                              :data => {"association-insertion-method" => "before",
+                                        "association-insertion-node" => 'this'
+                              } %>
+         </div>
+
+
+          <%= f.submit "保存", :class => "btn btn-primary center-block" %>
+       <% end %>
+
+      </div>
+   </div>
+ </div>
+</div>
+      
+
+

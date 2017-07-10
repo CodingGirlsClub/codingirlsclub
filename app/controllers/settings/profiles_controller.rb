@@ -16,7 +16,7 @@ class Settings::ProfilesController < ApplicationController
     end
 
     if @user.update_attributes(dup_user_params)
-      flash[:success] = '用户资料修改成功'
+      flash[:success] = I18n.t 'Update Profile Successfully'
       redirect_to settings_profile_path
     else
       render :show
