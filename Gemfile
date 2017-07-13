@@ -33,6 +33,8 @@ gem 'i18n', '~> 0.8.1'
 gem 'carrierwave', '~> 1.1'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
 gem 'mini_magick', '~> 4.7'
+# 后台
+gem 'cgc', path: 'engines/cgc'
 
 group :development, :test do
   gem 'pry'
