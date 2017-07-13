@@ -1,3 +1,9 @@
+PATH
+  remote: engines/cgc
+  specs:
+    cgc (0.1.0)
+      rails (~> 5.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -239,6 +245,7 @@ DEPENDENCIES
   capistrano-rbenv (~> 2.1)
   capybara (~> 2.13.0)
   carrierwave (~> 1.1)
+  cgc!
   coffee-rails (~> 4.2)
   figaro (~> 1.1)
   i18n (~> 0.8.1)

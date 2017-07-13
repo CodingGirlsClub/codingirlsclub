@@ -1,0 +1,41 @@
+<aside id="hoe-left-panel" hoe-position-type="absolute">
+
+  <ul class="nav panel-list">
+
+    <li class="active">
+      <a href="index.html">
+        <i class="fa fa-home"></i>
+        <span class="menu-text">Dashboard</span>
+        <span class="selected"></span>
+      </a>
+    </li>
+    <li class="hoe-has-menu">
+      <a href="javascript:void(0)">
+        <i class="fa fa-envelope"></i>
+        <span class="menu-text">角色审核</span>
+        <span class="selected"></span>
+      </a>
+      <ul class="hoe-sub-menu">
+        <li>
+          <%= link_to '#' do %>
+            <span class="menu-text">校园大使</span>
+            <span class="selected"></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#' do %>
+            <span class="menu-text">Mentor</span>
+            <span class="selected"></span>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <%= link_to '#' do %>
+        <i class="fa fa-bar-chart-o"></i>
+        <span class="menu-text">通用邀请码</span>
+        <span class="selected"></span>
+      <% end %>
+    </li>
+  </ul>
+</aside><!--aside left menu end-->
