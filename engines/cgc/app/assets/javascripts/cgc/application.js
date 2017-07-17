@@ -10,4 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_tree .
+//= require rails-ujs
+//= require jquery.min
+//= require bootstrap.min
+
+// assan template javascript files
+//= require cgc/modernizr
+//= require cgc/app
+//= require cgc/hoe
+//= require cgc/pace.min
+//= require cgc/jquery.slimscroll.min

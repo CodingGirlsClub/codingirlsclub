@@ -11,18 +11,3 @@
  * It is generally better to create a new file per style scope.
  *
  */
-
- @import "bootstrap.min";
- @import "font-awesome.min";
- @import "style";
-
- @import "plugins/hoe-nav/hoe"; //side menu plugin
- @import "plugins/ionicons/css/ionicons"; //icons
- @import "plugins/vectormap/jquery-jvectormap-2.0.2";
- @import "plugins/morris/morris-0.4.3.min";
-
- @import "dashboard/dark-style";
-
- #admin-info {
-  right: 0px;
- }

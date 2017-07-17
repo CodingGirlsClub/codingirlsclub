@@ -1,6 +1,6 @@
 
 /*#################### Right navigation Style Start Here ##################################*/
-/*body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-left-header,
+body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-left-header,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .hoe-left-header {
   right: 0;
 }
@@ -163,5 +163,5 @@ body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .hoe-minimized-lpanel #hoe-left-panel .panel-list > li.hoe-has-menu > ul > li.hoe-has-menu > ul > li > ul > li > a span.menu-text {
   padding-left: auto;
   padding-right: 0px;
-}*/
+}
 /*#################### Right Sidebar Style Close Here ##################################*/

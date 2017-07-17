@@ -19,13 +19,13 @@ DEMO URL: http://gohooey.com/demo/sidebar/hoedemo.html
 
 /********** 1. IMPORTS **********/
 /********************************/
-@import url('plugins/hoe-nav/hoe-overlay-effect.css');
-@import url('plugins/hoe-nav/hoe-push-effect.css');
-@import url('plugins/hoe-nav/hoe-shrink-effect.css');
-@import url('plugins/hoe-nav/hoe-rightsidebar.css');
-@import url('plugins/hoe-nav/hoe-horizontal-navigation.css');
-@import url('plugins/hoe-nav/hoe-theme-color.css');
-@import url('plugins/hoe-nav/header.css');
+@import url('hoe-overlay-effect.css');
+@import url('hoe-push-effect.css');
+@import url('hoe-shrink-effect.css');
+@import url('hoe-rightsidebar.css');
+@import url('hoe-horizontal-navigation.css');
+@import url('hoe-theme-color.css');
+@import url('header.css');
 /********** 2. RESET STYLES **********/
 /*************************************/
 
@@ -767,9 +767,9 @@ body[theme-layout="box-layout"] #hoeapp-wrapper[hoe-device-type="desktop"] {
 /*Boxed Theme Layout Style Close*/
  
 /*Theme Background Color in Start */
-/*body[theme-layout="box-layout" hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"]{
+body[theme-layout="box-layout" hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"]{
 	margin:0 auto;
-}*/
+}
 body[theme-bg="bg1"]{
 	 background-image: url("../images/bg1.png");
 }

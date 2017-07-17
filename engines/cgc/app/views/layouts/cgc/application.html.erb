@@ -7,8 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>CGC Admin</title>
-    <%= favicon_link_tag    'icons/LOGO.png' %>
-    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    "cgc/application", media: "all" %>
+    <%= javascript_include_tag "cgc/application" %>
+    <%= csrf_meta_tags %>
     <%= yield :head %>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -16,41 +17,41 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <%= csrf_meta_tags %>
   </head>
   <body hoe-navigation-type="vertical" hoe-nav-placement="left" theme-layout="wide-layout">
     <%= render 'layouts/cgc/flash_notice' %>
     <% if admin_logined? %>
-      <div id="wrapper">
-
-        <!--side navigation start-->
-        <div id="hoeapp-wrapper" class="hoe-hide-lpanel" hoe-device-type="desktop">
-          <%= render "layouts/cgc/header" %>
-          <div id="hoeapp-container" hoe-color-type="lpanel-bg5" hoe-lpanel-effect="shrink">
-            <%= render "layouts/cgc/nav" %>
-            <!--start main content-->
-            <section id="main-content">
-              <div class="space-30"></div>
-              <div class="container">
-                <%= yield %>
-              </div><!--end container-->
-            </section><!--end main content-->
-          </div>
-        </div><!--end wrapper-->
-      <% else %>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-              <div class="login-panel panel panel-default">
-                <%= yield %>
+      <!--side navigation start-->
+      <div id="hoeapp-wrapper" class="hoe-hide-lpanel" hoe-device-type="desktop">
+        <%= render "layouts/cgc/header" %>
+        <div id="hoeapp-container" hoe-color-type="lpanel-bg7" hoe-lpanel-effect="shrink">
+          <%= render "layouts/cgc/nav" %>
+          <!--start main content-->
+          <section id="main-content">
+            <div class="space-30"></div>
+            <div class="container">
+              <%= yield %>
+            </div><!--end container-->
+            <div class="footer">
+              <div class="row">
+                <div class="col-sm-12">
+                  <span>&copy; Copyright 2017. Codingirl</span>
+                </div>
               </div>
+            </div>
+          </section><!--end main content-->
+        </div>
+      </div><!--end wrapper-->
+    <% else %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+              <%= yield %>
             </div>
           </div>
         </div>
-      <% end %>
-
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"></div>
-      <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
-      <%= yield :tail %>
+      </div>
+    <% end %>
   </body>
 </html>
