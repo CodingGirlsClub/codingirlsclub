@@ -2,21 +2,21 @@ require_dependency 'cgc/application_controller'
 
 module Cgc
   class BaseController < ApplicationController
+    protect_from_forgery with: :exception
+
     helper_method :current_admin, :admin_logined?
 
     before_action :require_admin_login
-    before_action :http_basic_authenticate
-    protect_from_forgery with: :exception
+
+    def login(admin)
+      session[:admin_id] = admin.id
+    end
+
+    def logout
+      session.delete(:admin_id)
+    end
 
     private
-
-    def http_basic_authenticate
-      if Rails.env.production?
-        authenticate_or_request_with_http_basic do |name, password|
-          name == 'cgc' && password == '2017pwd_cgc_dwp7102'
-        end
-      end
-    end
 
     def admin_logined?
       !!current_admin
@@ -28,7 +28,7 @@ module Cgc
 
     def require_admin_login
       unless admin_logined?
-        redirect_to admin_login_path
+        redirect_to login_path
       end
     end
   end

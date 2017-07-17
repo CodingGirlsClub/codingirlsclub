@@ -1,0 +1,19 @@
+<div class="content">
+  <%= form_for(:session, url: login_path) do |f| %>
+     <div class="form-group">
+       <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
+       <span class="input-icon"><i class=" fa fa-envelope"></i></span>
+     </div>
+
+     <div class="form-group">
+       <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+       <span class="input-icon"><i class=" fa fa-lock"></i></span>
+     </div>
+
+     <%= f.submit '登录', class: 'btn btn-lg btn-block btn-skin' %>
+  <% end %>
+</div>
+
+<style type="text/css">
+.content {padding-top: 50%;}
+</style>
