@@ -1,0 +1,7 @@
+zh-CN:
+  activerecord:
+    attributes:
+      user:
+        gender_enum:
+          gender_male: '男'
+          gender_female: '女'
