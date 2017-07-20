@@ -7,7 +7,7 @@
         <div class="panel">
           <div class="panel-body">
             <div class="profile-info">
-              <%= image_tag (current_user.avatar_url(:thumb).to_s), alt: "", width: '120', class: 'img-circle' %>
+              <%= image_tag (current_user.avatar_url(:thumb)), alt: "", width: '120', class: 'img-circle' %>
 
               <h4><%= current_user.name %></h4>
               <div class="form-group">
