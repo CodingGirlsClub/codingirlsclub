@@ -30,6 +30,8 @@ gem 'figaro', '~> 1.1'
 gem 'i18n', '~> 0.8.1'
 # A Scope & Engine based, clean, powerful, agnostic, customizable and sophisticated paginator
 gem 'kaminari', '~> 1.0'
+# successor to the MetaSearch gem
+gem 'ransack', '~> 1.8'
 
 # Upload files in your Ruby applications, map them to a range of ORMs, store them on different backends.
 gem 'carrierwave', '~> 1.1'

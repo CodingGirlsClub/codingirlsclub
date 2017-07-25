@@ -13,11 +13,14 @@
  *= require cgc/bootstrap.min
  *= require cgc/font-awesome.min
  *= require cgc/style
+ *= require frontend/select2.min
 
  *= require cgc/hoe
  *= require cgc/ionicons.min
  *= require cgc/jquery-jvectormap-2.0.2
  *= require cgc/morris-0.4.3.min
+ *= require cgc/jquery.dataTables.min
+ *= require cgc/responsive.bootstrap.min
  */
 
  #admin-info {

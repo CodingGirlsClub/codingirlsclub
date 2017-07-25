@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require jquery.min
 //= require bootstrap.min
+//= require frontend/select2.full.min
 
 // assan template javascript files
 //= require cgc/modernizr
@@ -20,3 +21,6 @@
 //= require cgc/hoe
 //= require cgc/pace.min
 //= require cgc/jquery.slimscroll.min
+//= require cgc/jquery.dataTables.min
+//= require cgc/dataTables.responsive.min
+//= require cgc/users

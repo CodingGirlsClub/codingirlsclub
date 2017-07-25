@@ -6,4 +6,10 @@ Cgc::Engine.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:index]
+
+  # 城市与学校 select2 搜索
+  resources :cities, only: [] do
+    get :search, on: :collection
+    get :search_universities, on: :member
+  end
 end

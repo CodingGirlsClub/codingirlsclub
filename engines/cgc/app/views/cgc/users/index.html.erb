@@ -9,6 +9,15 @@
         <h2 class="panel-title">用户管理</h2>
       </header>
       <div class="panel-body">
+        <div class="table-toolbar">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="well well-sm shadow">
+                <%= render partial: 'search' %>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
@@ -29,9 +38,7 @@
           </table>
         </div>
       </div>
-      <div class="panel-footer">
-        <%= paginate @users, theme: 'bootstrap' %>
-      </div>
+      <%= paginate @users, theme: 'bootstrap' %>
     </div>
   </div>
 </div>

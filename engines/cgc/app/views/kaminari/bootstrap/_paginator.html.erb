@@ -1,8 +1,8 @@
 <%= paginator.render do %>
-  <nav>
-    <ul class="pagination">
-      <%= first_page_tag unless current_page.first? %>
-      <%= prev_page_tag unless current_page.first? %>
+  <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
+    <%= first_page_tag unless current_page.first? %>
+    <%= prev_page_tag unless current_page.first? %>
+    <span>
       <% each_page do |page| %>
         <% if page.left_outer? || page.right_outer? || page.inside_window? %>
           <%= page_tag page %>
@@ -10,8 +10,8 @@
           <%= gap_tag %>
         <% end %>
       <% end %>
-      <%= next_page_tag unless current_page.last? %>
-      <%= last_page_tag unless current_page.last? %>
-    </ul>
-  </nav>
+    </span>
+    <%= next_page_tag unless current_page.last? %>
+    <%= last_page_tag unless current_page.last? %>
+  </div>
 <% end %>
