@@ -2,6 +2,7 @@ PATH
   remote: engines/cgc
   specs:
     cgc (0.1.0)
+      aasm (~> 4.12)
       i18n (~> 0.8.1)
       kaminari (~> 1.0)
       rails (~> 5.1.0)
@@ -10,6 +11,8 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (4.12.1)
+      concurrent-ruby (~> 1.0)
     actioncable (5.1.0)
       actionpack (= 5.1.0)
       nio4r (~> 2.0)
@@ -259,6 +262,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm (~> 4.12)
   annotate
   bcrypt (~> 3.1.7)
   byebug

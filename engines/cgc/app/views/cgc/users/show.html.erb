@@ -40,6 +40,8 @@
                   <dd><%= @user.university.name %></dd>
                   <dt>学生证</dt>
                   <dd><%= image_tag (@user.id_photo_url(:thumb)), alt: '', width: 120 %></dd>
+                  <dt>学生证审核状态</dt>
+                  <dd><%= cgc_user_id_photo_status_name_for(@user) %></dd>
                 <% end %>
               </dl>
             </fieldset>

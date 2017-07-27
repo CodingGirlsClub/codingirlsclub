@@ -47,7 +47,7 @@ class AmbassadorsController < ApplicationController
   end
 
   def university_student_required
-    unless current_user.is_university_student?
+    unless current_user.is_university_student? || current_user.id_photo_status_success? # 在校大学生且学生证审核通过才可申请校园大使
       flash[:danger] = '只有在校大学生才可申请校园大使'
       redirect_to root_path
     end

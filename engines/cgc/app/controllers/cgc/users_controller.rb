@@ -1,5 +1,7 @@
 module Cgc
   class UsersController < BaseController
+    before_action :set_user, only: [:show, :do_approve_success, :do_approve_failed]
+
     def index
       # 回填城市搜索内容
       if params[:q] && params[:q][:city_id_eq].present?
@@ -17,6 +19,23 @@ module Cgc
     end
 
     def show
+    end
+
+    # 动态定义方法形式生成学生证件审核对应的动作
+    method_names = [:do_approve_success, :do_approve_failed]
+    method_names.each do |method_name|
+      define_method method_name do
+        @success = @user.send("#{method_name}!") if @user.send("may_#{method_name}?")
+        respond_to do |format|
+          format.html { redirect_to action: :index }
+          format.js { render 'operate' }
+        end
+      end
+    end
+
+    private
+
+    def set_user
       @user = User.find(params[:id])
     end
   end

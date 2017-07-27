@@ -1,30 +1,6 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id              :integer          not null, primary key
-#  name            :string(80)
-#  full_name       :string(80)
-#  email           :string(80)
-#  password_digest :string(255)
-#  mobile          :string(20)
-#  gender          :integer          default("0")
-#  age_range       :string(20)
-#  introduction    :text(65535)
-#  avatar          :string(255)
-#  id_photo        :string(255)
-#  github_url      :string(255)
-#  wechat_id       :string(80)
-#  city_id         :integer
-#  university_id   :integer
-#  last_login      :datetime
-#  last_ip         :string(255)
-#  description     :text(65535)
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#
-
 class User < ApplicationRecord
+  include AASM
+
   has_secure_password
 
   mount_uploader :avatar, AvatarUploader
@@ -58,6 +34,23 @@ class User < ApplicationRecord
 
   # 用户性别， 0: 男，1: 女
   enum gender: { gender_male: 0, gender_female: 1 }
+
+  # 用户学生证审核状态
+  aasm column: :id_photo_status, no_direct_assignment: true do
+    state :id_photo_status_fresh, initial: true # 待审核
+    state :id_photo_status_success              # 审核通过
+    state :id_photo_status_failed               # 审核未通过
+
+    # 审核通过
+    event :do_approve_success do
+      transitions from: [:id_photo_status_fresh, :id_photo_status_failed], to: :id_photo_status_success
+    end
+
+    # 审核未通过
+    event :do_approve_failed do
+      transitions from: :id_photo_status_fresh, to: :id_photo_status_failed
+    end
+  end
 
   # 记录用户持久化
   def remember

@@ -1,5 +1,4 @@
 exports = this
-exports.CGC = exports.CGC || {}
 exports.CGC.Users = exports.CGC.Users || {}
 
 class exports.CGC.Users.SelectCityAndUniversity

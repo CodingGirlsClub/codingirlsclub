@@ -32,6 +32,8 @@ gem 'i18n', '~> 0.8.1'
 gem 'kaminari', '~> 1.0'
 # successor to the MetaSearch gem
 gem 'ransack', '~> 1.8'
+# State machines for Ruby classes
+gem 'aasm', '~> 4.12'
 
 # Upload files in your Ruby applications, map them to a range of ORMs, store them on different backends.
 gem 'carrierwave', '~> 1.1'

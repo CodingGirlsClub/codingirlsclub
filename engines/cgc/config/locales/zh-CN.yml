@@ -5,6 +5,10 @@ zh-CN:
         gender_enum:
           gender_male: '男'
           gender_female: '女'
+        id_photo_status_aasm:
+          id_photo_status_fresh: '待审核'
+          id_photo_status_success: '审核通过'
+          id_photo_status_failed: '审核未通过'
 
   views:
     pagination:

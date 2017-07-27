@@ -24,4 +24,5 @@
 //= require cgc/jquery.dataTables.min
 //= require cgc/dataTables.responsive.min
 //= require cgc/lightbox.min
+//= require cgc/common
 //= require cgc/users
