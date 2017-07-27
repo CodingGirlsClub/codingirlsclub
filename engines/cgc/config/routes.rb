@@ -5,7 +5,7 @@ Cgc::Engine.routes.draw do
   post   '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
 
   # 城市与学校 select2 搜索
   resources :cities, only: [] do

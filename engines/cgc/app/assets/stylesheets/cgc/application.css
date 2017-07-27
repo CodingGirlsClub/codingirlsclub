@@ -21,6 +21,7 @@
  *= require cgc/morris-0.4.3.min
  *= require cgc/jquery.dataTables.min
  *= require cgc/responsive.bootstrap.min
+ *= require cgc/lightbox
  */
 
  #admin-info {

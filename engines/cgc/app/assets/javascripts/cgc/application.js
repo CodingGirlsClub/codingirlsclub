@@ -23,4 +23,5 @@
 //= require cgc/jquery.slimscroll.min
 //= require cgc/jquery.dataTables.min
 //= require cgc/dataTables.responsive.min
+//= require cgc/lightbox.min
 //= require cgc/users

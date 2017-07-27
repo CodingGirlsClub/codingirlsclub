@@ -15,5 +15,9 @@ module Cgc
       @users       = @search.result.includes(:city, :university).order(id: :desc).page(params[:page])
       @users_count = @search.result.count
     end
+
+    def show
+      @user = User.find(params[:id])
+    end
   end
 end
