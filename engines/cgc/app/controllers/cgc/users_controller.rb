@@ -14,7 +14,7 @@ module Cgc
       end
 
       @search      = User.ransack(params[:q])
-      @users       = @search.result.includes(:city, :university).order(id: :desc).page(params[:page])
+      @users       = @search.result.includes(:city, :university).order(id: :desc).page(params[:page]).per(20)
       @users_count = @search.result.count
     end
 
