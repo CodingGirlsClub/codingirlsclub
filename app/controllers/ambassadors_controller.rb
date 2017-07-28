@@ -39,8 +39,8 @@ class AmbassadorsController < ApplicationController
   end
 
   def set_ambassador_qa
-    @qa = AmbassadorQa.applied_qa
-    unless @qa.present?
+    @qa = Qa.where(category: 'AmbassadorQa', applied: true)
+    if @qa.empty?
       flash[:danger] = '暂时无法申请，请等待题目开放'
       redirect_to root_path
     end
