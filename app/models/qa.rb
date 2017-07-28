@@ -1,17 +1,6 @@
-# == Schema Information
-#
-# Table name: qas
-#
-#  id          :integer          not null, primary key
-#  title       :string(255)
-#  description :text(65535)
-#  type        :string(255)
-#  applied     :boolean          default("0")
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#
-
 class Qa < ApplicationRecord
-  has_many :questions, inverse_of: :qa, dependent: :destroy
-  accepts_nested_attributes_for :questions, reject_if: :all_blank, allow_destroy: true
+  # 问题类型，AmbassadorQa: 校园大使申请
+  TYPES_NAME = %w(AmbassadorQa)
+
+  has_many :questions
 end
