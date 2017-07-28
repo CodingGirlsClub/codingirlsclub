@@ -1,4 +1,11 @@
 zh-CN:
+  views:
+    pagination:
+      first: "&laquo; 首页"
+      last: "尾页 &raquo;"
+      previous: "&lsaquo; 前一页"
+      next: "后一页 &rsaquo;"
+      truncate: "&hellip;"
   activerecord:
     attributes:
       user:
@@ -14,11 +21,21 @@ zh-CN:
           status_fresh: '待审核'
           status_success: '审核通过'
           status_failed: '审核未通过'
-
-  views:
-    pagination:
-      first: "&laquo; 首页"
-      last: "尾页 &raquo;"
-      previous: "&lsaquo; 前一页"
-      next: "后一页 &rsaquo;"
-      truncate: "&hellip;"
+      qa:
+        title: '名称'
+        description: '描述'
+        category: '类型'
+    errors:
+      models:
+        qa:
+          attributes:
+            title:
+              blank: '不能为空'
+              too_long: 最多 %{count} 位
+            description:
+              blank: '不能为空'
+              too_long: 最多 %{count} 位
+            category:
+              blank: '不能为空'
+      messages:
+        record_invalid: '有效性检查失败'

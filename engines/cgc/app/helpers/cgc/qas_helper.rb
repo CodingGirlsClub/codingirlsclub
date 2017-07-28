@@ -1,7 +1,7 @@
 module Cgc
   module QasHelper
-    def cgc_qas_types_select
-      Qa::TYPES_NAME
+    def cgc_qas_categories_select
+      Qa::CATEGORIES_NAME
     end
 
     def cgc_qas_applied_select

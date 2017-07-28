@@ -13,8 +13,9 @@ Cgc::Engine.routes.draw do
     put :do_status_success, :do_status_failed, on: :member
   end
 
-  resources :qas, only: [:index, :show] do
+  resources :qas, only: [:index, :show, :new, :create, :edit, :update] do
     put :disabled, :enabled, on: :member
+    resources :questions, only: [:index, :create, :destroy]
   end
 
   # 邀请码

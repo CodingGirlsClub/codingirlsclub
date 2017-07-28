@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="panel">
-      <ul class="panel-breadcrumb breadcrumb">
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to '问题管理', qas_path %></li>
-      </ul>
-      <header class="panel-heading">
-        <h2 class="panel-title">问题名称: <%= @qa.title %></h2>
+    <ul class="panel-breadcrumb breadcrumb">
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to '问题管理', qas_path %></li>
+    </ul>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">问题名称: <%= @qa.title %></h4>
         <p class="helping-text">问题描述: <%= @qa.description %></p>
-      </header>
+      </div>
       <div class="panel-body">
         <fieldset>
           <legend>问题列表</legend>

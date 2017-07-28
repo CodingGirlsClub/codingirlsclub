@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-12">
+    <ul class="panel-breadcrumb breadcrumb">
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to '问题管理', qas_path %></li>
+    </ul>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">编辑问题</h4>
+      </div>
+      <div class="panel-body">
+        <%= render partial: 'form', locals: { url: qa_path(@qa) } %>
+      </div>
+    </div>
+  </div>
+</div>

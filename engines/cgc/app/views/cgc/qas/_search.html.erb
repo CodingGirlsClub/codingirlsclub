@@ -1,7 +1,7 @@
 <%= search_form_for @search, url: qas_path, html: { method: :get, class: 'form-inline' } do |f| %>
   <div class="form-group">
-    <%= f.label :type, '类别:' %>
-    <%= f.select :type_eq, cgc_qas_types_select, { include_blank: '请选择' }, class: 'form-control' %>
+    <%= f.label :category, '类别:' %>
+    <%= f.select :category_eq, cgc_qas_categories_select, { include_blank: '请选择' }, class: 'form-control' %>
 
     <%= f.label :applied, '是否启用:' %>
     <%= f.select :applied_eq, cgc_qas_applied_select, { include_blank: '请选择' }, class: 'form-control' %>
