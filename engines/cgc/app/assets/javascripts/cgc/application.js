@@ -26,3 +26,4 @@
 //= require cgc/lightbox.min
 //= require cgc/common
 //= require cgc/users
+//= require cgc/mentors

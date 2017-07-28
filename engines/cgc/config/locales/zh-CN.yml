@@ -9,6 +9,11 @@ zh-CN:
           id_photo_status_fresh: '待审核'
           id_photo_status_success: '审核通过'
           id_photo_status_failed: '审核未通过'
+      mentor:
+        status_aasm:
+          status_fresh: '待审核'
+          status_success: '审核通过'
+          status_failed: '审核未通过'
 
   views:
     pagination:
