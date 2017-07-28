@@ -13,6 +13,9 @@ Cgc::Engine.routes.draw do
     put :do_status_success, :do_status_failed, on: :member
   end
 
+  # 邀请码
+  resources :referrals, only: [:index, :create]
+
   # 城市与学校 select2 搜索
   resources :cities, only: [] do
     get :search, on: :collection

@@ -18,7 +18,6 @@
     <![endif]-->
   </head>
   <body hoe-navigation-type="vertical" hoe-nav-placement="left" theme-layout="wide-layout">
-    <%= render 'layouts/cgc/flash_notice' %>
     <% if admin_logined? %>
       <!--side navigation start-->
       <div id="hoeapp-wrapper" class="hoe-hide-lpanel" hoe-device-type="desktop">
@@ -29,6 +28,7 @@
           <section id="main-content">
             <div class="space-30"></div>
             <div class="container">
+              <%= render 'layouts/cgc/flash_notice' %>
               <%= yield %>
             </div><!--end container-->
             <div class="footer">

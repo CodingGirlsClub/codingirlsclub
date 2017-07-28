@@ -43,12 +43,20 @@
         </li>
       </ul>
     </li>
-    <li>
-      <%= link_to '#' do %>
+    <li class="hoe-has-menu">
+      <a href="javascript:void(0)">
         <i class="fa fa-bar-chart-o"></i>
         <span class="menu-text">通用邀请码</span>
         <span class="selected"></span>
-      <% end %>
+      </a>
+      <ul class="hoe-sub-menu">
+        <li>
+          <%= link_to referrals_path do %>
+            <span class="menu-text">邀请码管理</span>
+            <span class="selected"></span>
+          <% end %>
+        </li>
+      </ul>
     </li>
   </ul>
 </aside><!--aside left menu end-->
