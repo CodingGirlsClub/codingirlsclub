@@ -13,7 +13,10 @@ class AmbassadorsController < ApplicationController
   end
 
   def create
-    @ambassador = Ambassador.new(ambassador_params)
+    dup_ambassador_params = ambassador_params
+    dup_ambassador_params[:city_id] = current_user.city_id
+    dup_ambassador_params[:university_id] = current_user.university_id
+    @ambassador = Ambassador.new(dup_ambassador_params)
     submit_answers_hash = params[:answers].first
     question_id_num     = submit_answers_hash.keys.length
     contents_num        = submit_answers_hash.values.reject { |content| content.blank? }.length
@@ -35,12 +38,12 @@ class AmbassadorsController < ApplicationController
   private
 
   def ambassador_params
-    params.require(:ambassador).permit(:user_id, :self_introduction, :resume_url)
+    params.require(:ambassador).permit(:user_id, :self_introduction, :resume_url, :university_id, :city_id)
   end
 
   def set_ambassador_qa
-    @qa = Qa.where(category: 'AmbassadorQa', applied: true)
-    if @qa.empty?
+    @qa = Qa.where(category: 'AmbassadorQa', applied: true).order(id: :desc).first
+    if @qa.nil?
       flash[:danger] = '暂时无法申请，请等待题目开放'
       redirect_to root_path
     end

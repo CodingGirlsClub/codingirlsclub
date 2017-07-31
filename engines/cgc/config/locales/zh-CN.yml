@@ -21,6 +21,11 @@ zh-CN:
           status_fresh: '待审核'
           status_success: '审核通过'
           status_failed: '审核未通过'
+      ambassador:
+        status_aasm:
+          status_fresh: '待审核'
+          status_success: '审核通过'
+          status_failed: '审核未通过'
       qa:
         title: '名称'
         description: '描述'

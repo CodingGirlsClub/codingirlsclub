@@ -9,7 +9,13 @@ Cgc::Engine.routes.draw do
     put :do_approve_success, :do_approve_failed, on: :member
   end
 
+  # 助教
   resources :mentors, only: [:index, :show] do
+    put :do_status_success, :do_status_failed, on: :member
+  end
+
+  # 校园大使
+  resources :ambassadors, only: [:index, :show] do
     put :do_status_success, :do_status_failed, on: :member
   end
 

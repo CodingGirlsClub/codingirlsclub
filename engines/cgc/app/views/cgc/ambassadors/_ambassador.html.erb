@@ -1,0 +1,17 @@
+<tr id='ambassador-<%= ambassador.id %>'>
+  <td><%= ambassador.id %></td>
+  <td><%= ambassador.user&.name %></td>
+  <td><%= ambassador.user.email %></td>
+  <td><%= ambassador.user&.city&.province %></td>
+  <td><%= ambassador.user&.university&.name %></td>
+  <td><%= cgc_ambassadors_status_name_for(ambassador) %></td>
+  <td>
+    <%= link_to '详情', ambassador_path(ambassador), class: 'btn btn-info btn-xs' %>
+    <% if ambassador.may_do_status_success? %>
+      <%= link_to '审核通过', do_status_success_ambassador_path(ambassador), method: :put, remote: true, data: { confirm: '确定此项操作?', disable_with: '请稍等...' }, class: 'btn btn-info btn-xs' %>
+    <% end %>
+    <% if ambassador.may_do_status_failed? %>
+      <%= link_to '审核未通过', do_status_failed_ambassador_path(ambassador), method: :put, remote: true, data: { confirm: '确定此项操作?', disable_with: '请稍等...' }, class: 'btn btn-info btn-xs' %>
+    <% end %>
+  </td>
+</tr>
