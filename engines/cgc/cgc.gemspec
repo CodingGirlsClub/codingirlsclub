@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'i18n', '~> 0.8.1'
   s.add_dependency 'ransack', '~> 1.8'
   s.add_dependency 'aasm', '~> 4.12'
+  s.add_dependency 'paranoia', '~> 2.3'
 end

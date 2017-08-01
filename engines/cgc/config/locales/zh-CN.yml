@@ -30,6 +30,10 @@ zh-CN:
         title: '名称'
         description: '描述'
         category: '类型'
+        status_aasm:
+          status_fresh: '草稿'
+          status_enabled: '启用'
+          status_disabled: '废弃'
     errors:
       models:
         qa:

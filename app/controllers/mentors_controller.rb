@@ -3,7 +3,7 @@ class MentorsController < ApplicationController
   before_action :no_apply_required, only: [:new, :create]
 
   def index
-    @mentors = Mentor.where(applied: true)
+    @mentors = Mentor.where(status: 'status_success')
   end
 
   def new

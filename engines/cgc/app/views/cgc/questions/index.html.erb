@@ -23,22 +23,24 @@
 
         <hr>
 
-        <div class="panel-heading">
-          <h4 class="panel-title">添加新问题</h4>
-        </div>
-        <%= form_for(Question.new, url: qa_questions_path(@qa), html: { class: 'form-horizontal' }) do |f| %>
-          <%= render partial: 'layouts/cgc/error_messages', locals: { object: Question.new } %>
-          <div class="form-group">
-            <%= f.label :title, '名称*', class: 'control-label col-md-2' %>
-            <div class="col-md-6">
-              <%= f.text_field :title, class: 'form-control' %>
-            </div>
+        <% if @qa.status_fresh? %>
+          <div class="panel-heading">
+            <h4 class="panel-title">添加新问题</h4>
           </div>
-          <div class="form-group">
-            <div class="col-md-offset-2 col-md-8">
-              <%= f.submit '提交', class: 'btn btn-primary', data: { disable_with: '请稍等...' } %>
+          <%= form_for(Question.new, url: qa_questions_path(@qa), html: { class: 'form-horizontal' }) do |f| %>
+            <%= render partial: 'layouts/cgc/error_messages', locals: { object: Question.new } %>
+            <div class="form-group">
+              <%= f.label :title, '名称*', class: 'control-label col-md-2' %>
+              <div class="col-md-6">
+                <%= f.text_field :title, class: 'form-control' %>
+              </div>
             </div>
-          </div>
+            <div class="form-group">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.submit '提交', class: 'btn btn-primary', data: { disable_with: '请稍等...' } %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>

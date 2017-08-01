@@ -5,7 +5,7 @@ class AmbassadorsController < ApplicationController
   before_action :set_ambassador_qa,           only: [:new, :create]
 
   def index
-    @ambassadors = Ambassador.where(applied: true)
+    @ambassadors = Ambassador.where(status: 'status_success')
   end
 
   def new
@@ -43,7 +43,7 @@ class AmbassadorsController < ApplicationController
   end
 
   def set_ambassador_qa
-    @qa = Qa.where(category: 'AmbassadorQa', applied: true).order(id: :desc).first
+    @qa = Qa.where(category: 'AmbassadorQa', status: 'status_enabled').order(id: :desc).first
     if @qa.nil?
       flash[:danger] = '暂时无法申请，请等待题目开放'
       redirect_to root_path

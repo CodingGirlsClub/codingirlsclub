@@ -34,6 +34,8 @@ gem 'kaminari', '~> 1.0'
 gem 'ransack', '~> 1.8'
 # State machines for Ruby classes
 gem 'aasm', '~> 4.12'
+# Soft delete
+gem 'paranoia', '~> 2.3'
 
 # Upload files in your Ruby applications, map them to a range of ORMs, store them on different backends.
 gem 'carrierwave', '~> 1.1'

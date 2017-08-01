@@ -20,7 +20,7 @@ Cgc::Engine.routes.draw do
   end
 
   resources :qas, only: [:index, :show, :new, :create, :edit, :update] do
-    put :disabled, :enabled, on: :member
+    put :do_status_disabled, :do_status_enabled, on: :member
     resources :questions, only: [:index, :create, :destroy]
   end
 
