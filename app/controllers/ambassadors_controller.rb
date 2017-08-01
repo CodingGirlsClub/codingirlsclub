@@ -13,8 +13,9 @@ class AmbassadorsController < ApplicationController
   end
 
   def create
-    dup_ambassador_params = ambassador_params
-    dup_ambassador_params[:city_id] = current_user.city_id
+    dup_ambassador_params                 = ambassador_params
+    dup_ambassador_params[:qa_id]         = @qa.id
+    dup_ambassador_params[:city_id]       = current_user.city_id
     dup_ambassador_params[:university_id] = current_user.university_id
     @ambassador = Ambassador.new(dup_ambassador_params)
     submit_answers_hash = params[:answers].first
@@ -38,7 +39,7 @@ class AmbassadorsController < ApplicationController
   private
 
   def ambassador_params
-    params.require(:ambassador).permit(:user_id, :self_introduction, :resume_url, :university_id, :city_id)
+    params.require(:ambassador).permit(:user_id, :self_introduction, :resume_url, :qa_id, :university_id, :city_id)
   end
 
   def set_ambassador_qa

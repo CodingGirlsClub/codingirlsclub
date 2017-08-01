@@ -19,10 +19,9 @@ module Cgc
     end
 
     def show
-      # FIXME: 原始代码有bug，需要修复（列表中展示的问题与回答可能并不是申请人填的问题与回答）
-      qa = Qa.where(category: 'AmbassadorQa', applied: true).first
+      qa                  = Qa.find_by(id: @ambassador.qa_id)
       answers_content_arr = Answer.where(user_id: @ambassador.user_id, question_id: qa.questions.map(&:id)).map(&:content)
-      @answers = qa.questions.map(&:title).zip(answers_content_arr)
+      @answers            = qa.questions.map(&:title).zip(answers_content_arr)
     end
 
     # 以动态方法定义校园大使审核相应的方法
