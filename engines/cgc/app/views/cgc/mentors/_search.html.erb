@@ -1,0 +1,19 @@
+<%= search_form_for @search, url: mentors_path, html: { method: :get, class: 'form-inline' } do |f| %>
+  <div class="form-group">
+    <%= f.label :user_name, '姓名:' %>
+    <%= f.text_field :user_name_cont, class: 'form-control' %>
+
+    <%= f.label :phone_number, '手机号码:' %>
+    <%= f.text_field :phone_number_cont, class: 'form-control' %>
+
+    <%= f.label :city_id, '城市:' %>
+    <%= f.select :city_id_eq, [@city_default_value], {}, data: { url: search_cities_path }, class: 'form-control', style: 'width: 150px' %>
+  </div>
+  <div class="input-group-btn pull-right">
+    <%= f.submit '搜索', class: 'btn btn-sm btn-primary pull-right' %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  CGC.Mentors.SelectCity.selectCity();
+</script>

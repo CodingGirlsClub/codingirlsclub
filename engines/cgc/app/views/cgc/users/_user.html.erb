@@ -1,0 +1,39 @@
+<tr id='user-<%= user.id %>'>
+  <td><%= user.id %></td>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= cgc_user_gender_name_for(user) %></td>
+  <td><%= user.city&.province || '-' %></td>
+  <td><%= user.is_university_student %></td>
+  <td><%= user.university&.name || '-' %></td>
+  <td>
+    <% if user.is_university_student? %>
+      <%= cgc_user_id_photo_status_name_for(user) %>
+    <% else %>
+      <%= '-' %>
+    <% end %>
+  </td>
+  <td>
+    <% if user.is_university_student? %>
+      <a class="gallery-box" href="<%= user.id_photo_url(:thumb) %>" data-lightbox="gallery" target="_blank">
+        <%= image_tag (user.id_photo_url(:thumb)), alt: "", width: '80', class: 'img-responsive' %>
+        <div class="gallery-overlay">
+          <i class="ion-ios-eye-outline"></i>
+        </div>
+      </a>
+    <% else %>
+      <%= '-' %>
+    <% end %>
+  </td>
+  <td class="action">
+    <%= link_to '详情', user_path(user), class: 'btn btn-info btn-xs' %>
+    <% if user.is_university_student? %>
+      <% if user.may_do_approve_success? %>
+        <%= link_to '证件通过', do_approve_success_user_path(user), method: :put, remote: true, data: { confirm: '确定此项操作?', disable_with: '请稍等...' }, class: 'btn btn-info btn-xs' %>
+      <% end %>
+      <% if user.may_do_approve_failed? %>
+        <%= link_to '证件未通过', do_approve_failed_user_path(user), method: :put, remote: true, data: { confirm: '确定此项操作?', disable_with: '请稍等...' }, class: 'btn btn-info btn-xs' %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= render partial: 'layouts/cgc/breadcrumb', locals: { objects: { home: 'root_path', '问题管理': 'qas_path' }} %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">问题管理</h4>
+      </div>
+      <div class="panel-body">
+        <div class="table-toolbar">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="well well-sm shadow">
+                <%= render partial: 'search' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <%= link_to '创建问题', new_qa_path, class: 'btn btn-info btn-xs' %>
+        </div>
+        <p>问题数量: <%= @qas_count %></p>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>名称</th>
+                <th>类别</th>
+                <th>是否启用</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render partial: 'qa', collection: @qas %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <%= paginate @qas, theme: 'bootstrap' %>
+    </div>
+  </div>
+</div>

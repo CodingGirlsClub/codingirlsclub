@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= render partial: 'layouts/cgc/breadcrumb', locals: { objects: { home: 'root_path', '问题管理': 'qas_path' }} %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">问题名称: <%= @qa.title %></h4>
+        <p class="helping-text">问题描述: <%= @qa.description %></p>
+      </div>
+      <div class="panel-body">
+        <fieldset>
+          <legend>问题列表</legend>
+          <dl class="dl-horizontal">
+            <% @qa.questions.each_with_index do |question, index| %>
+              <dt>问题<%= index + 1 %></dt>
+              <dd><%= question.title %></dd>
+            <% end %>
+          </dl>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>

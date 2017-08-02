@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= render partial: 'layouts/cgc/breadcrumb', locals: { objects: { home: 'root_path', '角色管理': 'root_path', '助教': 'mentors_path' }} %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <fieldset>
+          <legend>助教申请详情</legend>
+          <dl class="dl-horizontal">
+            <dt>姓名</dt>
+            <dd><%= @mentor.user&.name %></dd>
+            <dt>Email</dt>
+            <dd><%= @mentor.user&.email %></dd>
+            <dt>课程列表</dt>
+            <dd><%= @mentor.courses.pluck(:name).join(', ') %></dd>
+            <dt>自我介绍</dt>
+            <dd><%= @mentor.introduce_self %></dd>
+            <dt>申请原因</dt>
+            <dd><%= @mentor.why_to_teach %></dd>
+            <dt>长语言</dt>
+            <dd><%= @mentor.master_lang %></dd>
+            <dt>城市</dt>
+            <dd><%= @mentor.user&.city&.province %></dd>
+            <dt>教课时间</dt>
+            <dd><%= @mentor.teaching_time %></dd>
+            <dt>电话号码</dt>
+            <dd><%= @mentor.phone_number %></dd>
+            <dt>微信号</dt>
+            <dd><%= @mentor.wechat_id %></dd>
+            <dt>GitHub URL</dt>
+            <dd><%= @mentor.github_url %></dd>
+            <dt>曾经参与的项目</dt>
+            <dd><%= @mentor.ever_project_url %></dd>
+            <dt>简历URL</dt>
+            <dd><%= @mentor.resume_url %></dd>
+          </dl>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<%= search_form_for @search, url: users_path, html: { method: :get, class: 'form-inline' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, '姓名:' %>
+    <%= f.text_field :name_cont, class: 'form-control' %>
+
+    <%= f.label :email, 'Email:' %>
+    <%= f.text_field :email_cont, class: 'form-control' %>
+
+    <%= f.label :is_university_student, '在校大学生:' %>
+    <%= f.select :is_university_student_eq, cgc_users_is_university_student_select, { include_blank: '请选择' }, class: 'form-control' %>
+
+    <%= f.label :gender, '性别:' %>
+    <%= f.select :gender_eq, cgc_users_gender_select, { include_blank: '请选择' }, class: 'form-control' %>
+  </div>
+  <div>
+    <%= f.label :city_id, '城市:' %>
+    <%= f.select :city_id_eq, [@city_default_value], {}, data: { url: search_cities_path }, class: 'form-control', style: 'width: 150px' %>
+
+    <%= f.label :university_id, '学校:' %>
+    <%= f.select :university_id_eq, [@university_default_value], {}, data: { url: search_universities_city_path(':id') }, class: 'form-control', style: 'width: 150px' %>
+  </div>
+  <div class="input-group-btn pull-right">
+    <%= f.submit '搜索', class: 'btn btn-sm btn-primary pull-right' %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  CGC.Users.SelectCityAndUniversity.selectCityAndUniversity();
+</script>

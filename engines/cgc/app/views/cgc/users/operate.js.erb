@@ -1,0 +1,6 @@
+<% if @success %>
+  $("#user-<%= @user.id %>").replaceWith('<%= j render(partial: 'user', locals: { user: @user }) %>');
+  CGC.alert('success', '操作成功');
+<% else %>
+  CGC.alert('danger', '操作失败');
+<% end %>

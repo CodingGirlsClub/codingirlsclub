@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   # routes for static pages
   draw :pages
   # routes for admin
-  draw :admin
+  mount Cgc::Engine, at: '/cgc', as: :cgc
 end

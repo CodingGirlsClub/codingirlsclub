@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= render partial: 'layouts/cgc/breadcrumb', locals: { objects: { home: 'root_path', '邀请码管理': 'referrals_path'}} %>
+    <div class="panel panel-default">
+      <header class="panel-heading">
+        <h2 class="panel-title">邀请码管理</h2>
+      </header>
+      <div class="panel-body">
+        <div class="btn-group">
+          <%= button_to '一键生成邀请码', referrals_path, class: 'btn btn-info btn-xs' %>
+        </div>
+        <p>邀请码数量: <%= @referrals_count %></p>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>CODE</th>
+                <th>有效期</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @referrals.each do |referral| %>
+                <tr>
+                  <td><%= referral.id %></td>
+                  <td><%= referral.code %></td>
+                  <td><%= referral.expired_at.strftime('%F %T') %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <%= paginate @referrals, theme: 'bootstrap' %>
+    </div>
+  </div>
+</div>

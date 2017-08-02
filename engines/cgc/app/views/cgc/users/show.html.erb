@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="panel">
+      <div class="panel-body">
+        <div class="profile-info">
+          <%= image_tag (@user.avatar_url(:thumb)), alt: "", width: '120', class: 'img-circle' %>
+          <h4><%= @user.name %></h4>
+          <p class="color-info"><%= @user.email %></p>
+          <p class="color-info"><%= @user.mobile %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel">
+          <div class="panel-body">
+            <fieldset>
+              <legend>用户信息</legend>
+              <dl class="dl-horizontal">
+                <dt>是否在校大学生</dt>
+                <dd><%= @user.is_university_student %></dd>
+                <dt>Full Name</dt>
+                <dd><%= @user.full_name %></dd>
+                <dt>个人描述</dt>
+                <dd><%= @user.introduction %></dd>
+                <dt>所属城市</dt>
+                <dd><%= @user.city&.province %></dd>
+                <dt>性别</dt>
+                <dd><%= cgc_user_gender_name_for(@user) %></dd>
+                <dt>年龄段</dt>
+                <dd><%= @user.age_range %></dd>
+                <dt>GitHub地址</dt>
+                <dd><%= @user.github_url %></dd>
+                <dt>Wechat ID</dt>
+                <dd><%= @user.wechat_id %></dd>
+                <% if @user.is_university_student %>
+                  <dt>所属学校</dt>
+                  <dd><%= @user.university.name %></dd>
+                  <dt>学生证</dt>
+                  <dd><%= image_tag (@user.id_photo_url(:thumb)), alt: '', width: 120 %></dd>
+                  <dt>学生证审核状态</dt>
+                  <dd><%= cgc_user_id_photo_status_name_for(@user) %></dd>
+                <% end %>
+              </dl>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

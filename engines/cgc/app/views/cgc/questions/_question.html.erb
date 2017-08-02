@@ -1,0 +1,9 @@
+<tr id='question-<%= question.id %>'>
+  <td><%= question.id %></td>
+  <td><%= question.title %></td>
+  <td>
+    <% if @qa.status_fresh? %>
+      <%= link_to '删除', qa_question_path(@qa, question), remote: true, method: :delete, data: { confirm: '确定此项操作?', disable_with: '请稍等...' }, class: 'btn btn-info btn-xs' %>
+    <% end %>
+  </td>
+</tr>

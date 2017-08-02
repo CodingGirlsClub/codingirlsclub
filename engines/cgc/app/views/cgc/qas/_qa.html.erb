@@ -1,0 +1,19 @@
+<tr id='qa-<%= qa.id %>'>
+  <td><%= qa.id %></td>
+  <td><%= qa.title %></td>
+  <td><%= qa.category %></td>
+  <td><%= cgc_qas_status_name_for(qa) %></td>
+  <td>
+    <%= link_to '详情', qa_path(qa), class: 'btn btn-info btn-xs' %>
+    <% if qa.status_fresh? %>
+      <%= link_to '编辑', edit_qa_path(qa), class: 'btn btn-info btn-xs' %>
+    <% end %>
+    <% if qa.may_do_status_disabled? %>
+      <%= link_to '废弃', do_status_disabled_qa_path(qa), remote: true, method: :put, data: { confirm: '确定此项操作?', disable_with: '请稍等...' }, class: 'btn btn-info btn-xs' %>
+    <% end %>
+    <% if qa.may_do_status_enabled? %>
+      <%= link_to '启用', do_status_enabled_qa_path(qa), remote: true, method: :put, data: { confirm: '确定此项操作?', disable_with: '请稍等...' }, class: 'btn btn-info btn-xs' %>
+    <% end %>
+    <%= link_to '问题列表', qa_questions_path(qa), class: 'btn btn-info btn-xs' %>
+  </td>
+</tr>

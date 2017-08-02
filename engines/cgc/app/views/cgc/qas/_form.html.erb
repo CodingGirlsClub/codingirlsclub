@@ -1,0 +1,26 @@
+<%= form_for(@qa, url: url, html: { class: 'form-horizontal' }) do |f| %>
+  <%= render partial: 'layouts/cgc/error_messages', locals: { object: @qa } %>
+  <div class="form-group">
+    <%= f.label :category, '类别*', class: 'control-label col-md-2' %>
+    <div class="col-md-6">
+      <%= f.select :category, cgc_qas_categories_select, { include_blank: '请选择' }, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :title, '名称*', class: 'control-label col-md-2' %>
+    <div class="col-md-6">
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, '描述*', class: 'control-label col-md-2' %>
+    <div class="col-md-6">
+      <%= f.text_area :description, rows: 4, cols: 40, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-8">
+      <%= f.submit '提交', class: 'btn btn-primary', data: { disable_with: '请稍等...' } %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<header id="hoe-header" hoe-lpanel-effect="shrink">
+  <div class="hoe-left-header">
+    <a href="#"> <span>CGC管理后台</span></a>
+    <span class="hoe-sidebar-toggle"><a href="#"></a></span>
+  </div>
+
+  <div class="hoe-right-header" hoe-position-type="relative">
+    <span class="hoe-sidebar-toggle"><a href="#"></a></span>
+    <ul class="right-navbar navbar-right">
+      <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle"><%= current_admin.name %></a>
+        <ul id="admin-info" class="dropdown-menu dropdown-menu-scale user-dropdown">
+          <%= link_to '退出', logout_path, method: :delete %>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>

@@ -5,7 +5,7 @@ class AmbassadorsController < ApplicationController
   before_action :set_ambassador_qa,           only: [:new, :create]
 
   def index
-    @ambassadors = Ambassador.where(applied: true)
+    @ambassadors = Ambassador.where(status: 'status_success')
   end
 
   def new
@@ -13,7 +13,11 @@ class AmbassadorsController < ApplicationController
   end
 
   def create
-    @ambassador = Ambassador.new(ambassador_params)
+    dup_ambassador_params                 = ambassador_params
+    dup_ambassador_params[:qa_id]         = @qa.id
+    dup_ambassador_params[:city_id]       = current_user.city_id
+    dup_ambassador_params[:university_id] = current_user.university_id
+    @ambassador = Ambassador.new(dup_ambassador_params)
     submit_answers_hash = params[:answers].first
     question_id_num     = submit_answers_hash.keys.length
     contents_num        = submit_answers_hash.values.reject { |content| content.blank? }.length
@@ -35,19 +39,19 @@ class AmbassadorsController < ApplicationController
   private
 
   def ambassador_params
-    params.require(:ambassador).permit(:user_id, :self_introduction, :resume_url)
+    params.require(:ambassador).permit(:user_id, :self_introduction, :resume_url, :qa_id, :university_id, :city_id)
   end
 
   def set_ambassador_qa
-    @qa = AmbassadorQa.applied_qa
-    unless @qa.present?
+    @qa = Qa.where(category: 'AmbassadorQa', status: 'status_enabled').order(id: :desc).first
+    if @qa.nil?
       flash[:danger] = '暂时无法申请，请等待题目开放'
       redirect_to root_path
     end
   end
 
   def university_student_required
-    unless current_user.is_university_student?
+    unless current_user.is_university_student? || current_user.id_photo_status_success? # 在校大学生且学生证审核通过才可申请校园大使
       flash[:danger] = '只有在校大学生才可申请校园大使'
       redirect_to root_path
     end

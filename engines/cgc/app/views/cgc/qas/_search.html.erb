@@ -1,0 +1,12 @@
+<%= search_form_for @search, url: qas_path, html: { method: :get, class: 'form-inline' } do |f| %>
+  <div class="form-group">
+    <%= f.label :category, '类别:' %>
+    <%= f.select :category_eq, cgc_qas_categories_select, { include_blank: '请选择' }, class: 'form-control' %>
+
+    <%= f.label :status, '状态:' %>
+    <%= f.select :status_eq, cgc_qas_status_option_for_select, { include_blank: '请选择' }, class: 'form-control' %>
+  </div>
+  <div class="input-group-btn pull-right">
+    <%= f.submit '搜索', class: 'btn btn-sm btn-primary pull-right' %>
+  </div>
+<% end %>

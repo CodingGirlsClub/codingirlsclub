@@ -1,0 +1,18 @@
+<div class="page-center">
+  <div class="page-center-in">
+    <%= form_for(:session, url: login_path, html: { class: 'sign-box' }) do |f| %>
+      <div class="sign-avatar">
+        <%= image_tag asset_path('cgc/LOGO.png', protocol: :relative), class: 'img-circle' %>
+      </div>
+      <header class="sign-title">登录</header>
+       <div class="form-group">
+         <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
+       </div>
+       <div class="form-group">
+         <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+       </div>
+
+       <%= f.submit '登录', class: 'btn btn-success rounded btn-lg' %>
+    <% end %>
+  </div>
+</div>

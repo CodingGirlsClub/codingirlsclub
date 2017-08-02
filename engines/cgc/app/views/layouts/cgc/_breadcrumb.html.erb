@@ -1,0 +1,5 @@
+<ul class="panel-breadcrumb breadcrumb">
+  <% objects.each do |key, value| %>
+    <li><%= link_to key, send(value) %></li>
+  <% end %>
+</ul>

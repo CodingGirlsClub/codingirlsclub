@@ -1,0 +1,21 @@
+<tr id='mentor-<%= mentor.id %>'>
+  <td><%= mentor.id %></td>
+  <td><%= mentor.user&.name %></td>
+  <td><%= mentor.user&.email %></td>
+  <td><%= mentor.phone_number %></td>
+  <td><%= mentor.wechat_id %></td>
+  <td><%= mentor.master_lang %></td>
+  <td><%= mentor.city&.province %></td>
+  <td><%= mentor.teaching_time %></td>
+  <td><%= cgc_mentors_status_name_for(mentor) %></td>
+  <td>
+    <%= link_to "详细", mentor_path(mentor), class: 'btn btn-info btn-xs' %>
+    <% if mentor.may_do_status_success? %>
+      <%= link_to '审核通过', do_status_success_mentor_path(mentor), method: :put, remote: true, data: { confirm: '确定此项操作?', disable_with: '请稍等...' }, class: 'btn btn-info btn-xs' %>
+    <% end %>
+    <% if mentor.may_do_status_failed? %>
+      <%= link_to '审核未通过', do_status_failed_mentor_path(mentor), method: :put, remote: true, data: { confirm: '确定此项操作?', disable_with: '请稍等...' }, class: 'btn btn-info btn-xs' %>
+    <% end %>
+  </td>
+</tr>
+

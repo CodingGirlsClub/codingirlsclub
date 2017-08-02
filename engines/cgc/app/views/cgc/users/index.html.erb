@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= render partial: 'layouts/cgc/breadcrumb', locals: { objects: { home: 'root_path', '用户管理': 'users_path'}} %>
+    <div class="panel panel-default">
+      <header class="panel-heading">
+        <h2 class="panel-title">用户管理</h2>
+      </header>
+      <div class="panel-body">
+        <div class="table-toolbar">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="well well-sm shadow">
+                <%= render partial: 'search' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>用户数量: <%= @users_count %></p>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>Email</th>
+                <th>性别</th>
+                <th>城市</th>
+                <th>是否是在校生</th>
+                <th>学校</th>
+                <th>证件状态</th>
+                <th>学生证</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render partial: 'user', collection: @users %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <%= paginate @users, theme: 'bootstrap' %>
+    </div>
+  </div>
+</div>

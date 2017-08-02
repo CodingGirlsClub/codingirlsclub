@@ -28,11 +28,21 @@ gem 'capistrano-rbenv', '~> 2.1'
 gem 'figaro', '~> 1.1'
 # New wave Internationalization support for Ruby.
 gem 'i18n', '~> 0.8.1'
+# A Scope & Engine based, clean, powerful, agnostic, customizable and sophisticated paginator
+gem 'kaminari', '~> 1.0'
+# successor to the MetaSearch gem
+gem 'ransack', '~> 1.8'
+# State machines for Ruby classes
+gem 'aasm', '~> 4.12'
+# Soft delete
+gem 'paranoia', '~> 2.3'
 
 # Upload files in your Ruby applications, map them to a range of ORMs, store them on different backends.
 gem 'carrierwave', '~> 1.1'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
 gem 'mini_magick', '~> 4.7'
+# 后台
+gem 'cgc', path: 'engines/cgc'
 
 group :development, :test do
   gem 'pry'
