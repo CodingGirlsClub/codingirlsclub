@@ -35,7 +35,7 @@ namespace :deploy do
   desc 'Assets compile'
   task :compile_assets do
     on roles(:app), wait: 5 do
-      execute :sudo, " chmod -R 777 #{release_path}/tmp/cache"
+      execute " chmod -R 777 #{release_path}/tmp/cache"
     end
   end
 end
