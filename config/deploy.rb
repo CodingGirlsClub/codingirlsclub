@@ -9,7 +9,7 @@ set :deploy_to, "/var/www/codingirlsclub/"
 set :format, :airbrussh
 set :log_level, :debug
 set :keep_releases, 5
-append :linked_files, "application.yml", "config/database.yml", "config/secrets.yml"
+append :linked_files, "config/application.yml", "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 set :bundle_binstubs, nil
 set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
