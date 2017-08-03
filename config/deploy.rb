@@ -105,16 +105,6 @@ namespace :cgc do
     end
   end
 
-  namespace :backburner do
-    %w[start stop restart status].each do |command|
-      task command do
-        on roles(:worker) do
-          sudo :service, 'backburner-manager', command
-        end
-      end
-    end
-  end
-
   task :setup do
     puts "Run as root on #{fetch(:stage)} =>"
     puts <<-EOB
@@ -169,14 +159,5 @@ namespace :git do
         execute :git, 'remote', 'set-url', 'origin', fetch(:repo_url)
       end
     end
-  end
-end
-
-# Override puma:start
-# https://github.com/seuros/capistrano-puma/blob/master/lib/capistrano/tasks/puma.cap
-Rake::Task['puma:start'].clear
-namespace :puma do
-  task :start do
-    puts 'Do not use puma:start, use cgc:puma:start instead'
   end
 end
