@@ -126,8 +126,6 @@ namespace :cgc do
     puts 'Prepare nginx and puma'
     puts "\tinvoke:puma:nginx_config"
     puts "\tinvoke:puma:config"
-    puts "whenever:clear_crontab"
-    puts "whenever:update_crontab"
   end
 
   task :copy_assets_manifest do

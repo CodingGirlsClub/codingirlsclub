@@ -8,6 +8,3 @@ set :branch, 'develop'
 set :puma_workers, 2
 
 set :deploy_to, -> { "/var/www/#{fetch(:application)}_#{fetch(:stage)}" }
-
-# Disable when auto update_crontab
-Rake::Task['whenever:update_crontab'].clear
