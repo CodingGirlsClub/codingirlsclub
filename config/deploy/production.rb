@@ -61,3 +61,4 @@
 #   }
 
 server '172.104.78.40', user: 'deploy', roles: %w{app db web}
+set :branch, 'develop'
