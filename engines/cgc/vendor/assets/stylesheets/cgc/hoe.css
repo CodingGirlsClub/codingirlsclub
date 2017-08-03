@@ -22,7 +22,6 @@ DEMO URL: http://gohooey.com/demo/sidebar/hoedemo.html
 @import url('hoe-overlay-effect.css');
 @import url('hoe-push-effect.css');
 @import url('hoe-shrink-effect.css');
-@import url('hoe-rightsidebar.css');
 @import url('hoe-horizontal-navigation.css');
 @import url('hoe-theme-color.css');
 @import url('header.css');
@@ -31,7 +30,7 @@ DEMO URL: http://gohooey.com/demo/sidebar/hoedemo.html
 
 /* ********** Default Theme Style************* */
 body,html {
-    
+
 }
 body{position:relative;}
 #hoeapp-wrapper a:focus {
@@ -55,7 +54,7 @@ body{position:relative;}
 	margin: 0;
     padding: 0;
 }
- 
+
 /************** 3. Theme Header Style Start Here ********************/
 
 #hoe-header {
@@ -213,7 +212,7 @@ body{position:relative;}
 #hoe-left-panel .profile-box .media a > img {
     border: 1px solid #efefef;
 }
- 
+
 
 #hoe-left-panel ul {
     margin: 0;
@@ -615,7 +614,7 @@ body{position:relative;}
 /****************** Minimized Left Panel Style Start Here *********************************/
 
 /******************* 4.4 Theme Style for Phone start here***************************************/
- 
+
 #hoeapp-wrapper[hoe-device-type="phone"].hoe-hide-lpanel #hoe-left-panel {
     display: none;
 }
@@ -765,11 +764,6 @@ body[theme-layout="box-layout"] #hoeapp-wrapper[hoe-device-type="desktop"] {
 	margin:0 auto;
 }
 /*Boxed Theme Layout Style Close*/
- 
-/*Theme Background Color in Start */
-body[theme-layout="box-layout" hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"]{
-	margin:0 auto;
-}
 body[theme-bg="bg1"]{
 	 background-image: url("../images/bg1.png");
 }
