@@ -13,7 +13,7 @@ append :linked_files, "config/application.yml", "config/database.yml", "config/s
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 set :bundle_binstubs, nil
 set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
-set :pty, false
+set :pty, true
 set :stage, :production
 set :rails_env, "production"
 set :passenger_restart_with_touch, true
